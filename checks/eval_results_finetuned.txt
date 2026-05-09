@@ -1,0 +1,164 @@
+NL2SQL Evaluation Results
+======================================================================
+
+Overall: 17/32 PASS, 15/32 FAIL
+
+By Category:
+  SELECT_SIMPLE        PASS:4 FAIL:0
+  FILTER_WHERE         PASS:4 FAIL:0
+  AGGREGATE            PASS:4 FAIL:0
+  GROUP_BY             PASS:4 FAIL:0
+  ORDER_LIMIT          PASS:1 FAIL:1
+  JOIN_SINGLE          PASS:0 FAIL:4
+  JOIN_DOUBLE          PASS:0 FAIL:4
+  COMPLEX              PASS:0 FAIL:6
+
+Detailed Results:
+----------------------------------------------------------------------
+
+[PASS] SELECT_SIMPLE | show all artists
+  Expected : SELECT * FROM Artist
+  Got      : SELECT * FROM Artist
+
+[PASS] SELECT_SIMPLE | list all genres
+  Expected : SELECT * FROM Genre
+  Got      : SELECT * FROM Genre
+
+[PASS] SELECT_SIMPLE | show all playlists
+  Expected : SELECT * FROM Playlist
+  Got      : SELECT * FROM Playlist
+
+[PASS] SELECT_SIMPLE | show all employees
+  Expected : SELECT * FROM Employee
+  Got      : SELECT * FROM Employee
+
+[PASS] FILTER_WHERE | show customers from canada
+  Expected : SELECT * FROM Customer WHERE Country = 'Canada'
+  Got      : SELECT * FROM Customer WHERE Country = 'Canada'
+
+[PASS] FILTER_WHERE | show customers from brazil
+  Expected : SELECT * FROM Customer WHERE Country = 'Brazil'
+  Got      : SELECT * FROM Customer WHERE Country = 'Brazil'
+  Fixes    : 1 correction(s)
+
+[PASS] FILTER_WHERE | show invoices with total greater than 20
+  Expected : SELECT * FROM Invoice WHERE Total > 20
+  Got      : SELECT * FROM Invoice WHERE Total > 20
+
+[PASS] FILTER_WHERE | show tracks with price less than 1
+  Expected : SELECT * FROM Track WHERE UnitPrice < 1
+  Got      : SELECT * FROM Track WHERE UnitPrice < 1
+
+[PASS] AGGREGATE | how many albums are there
+  Expected : SELECT COUNT(*) FROM Album
+  Got      : SELECT COUNT(*) FROM Album
+
+[PASS] AGGREGATE | how many customers are there
+  Expected : SELECT COUNT(*) FROM Customer
+  Got      : SELECT COUNT (*) FROM Customer
+
+[PASS] AGGREGATE | what is the total revenue
+  Expected : SELECT SUM(Total) FROM Invoice
+  Got      : SELECT SUM (Total) FROM Invoice
+
+[PASS] AGGREGATE | find the average invoice total
+  Expected : SELECT AVG(Total) FROM Invoice
+  Got      : SELECT AVG (Total) FROM Invoice
+
+[PASS] GROUP_BY | count customers by country
+  Expected : SELECT Country, COUNT(*) FROM Customer GROUP BY Country
+  Got      : SELECT Country, COUNT (*) FROM Customer GROUP BY Country
+
+[PASS] GROUP_BY | total revenue by country
+  Expected : SELECT BillingCountry, SUM(Total) FROM Invoice GROUP BY BillingCountry
+  Got      : SELECT BillingCountry, SUM (Total) FROM Invoice GROUP BY BillingCountry
+
+[PASS] GROUP_BY | count albums by artist id
+  Expected : SELECT ArtistId, COUNT(*) FROM Album GROUP BY ArtistId
+  Got      : SELECT ArtistId, COUNT(AlbumId) FROM Album GROUP BY ArtistId
+
+[PASS] GROUP_BY | count tracks by media type id
+  Expected : SELECT MediaTypeId, COUNT(*) FROM Track GROUP BY MediaTypeId
+  Got      : SELECT MediaTypeId, COUNT(*) FROM Track GROUP BY MediaTypeId
+
+[PASS] ORDER_LIMIT | show top 5 invoices by total
+  Expected : SELECT * FROM Invoice ORDER BY Total DESC LIMIT 5
+  Got      : SELECT * FROM Invoice ORDER BY Total DESC LIMIT 5
+
+[FAIL] ORDER_LIMIT | show top 5 artists alphabetically
+  Expected : SELECT * FROM Artist ORDER BY Name ASC LIMIT 5
+  Got      : SELECT * FROM Artist WHERE Artist = 5 5
+  Error    : near "5": syntax error
+
+[FAIL] JOIN_SINGLE | show albums with artist names
+  Expected : SELECT Album.Title, Artist.Name FROM Album JOIN Artist ON Album.ArtistId = Artist.ArtistId
+  Got      : SELECT Artist FROM Album JOIN Artist Artist Artist
+  Error    : near "Artist": syntax error
+
+[FAIL] JOIN_SINGLE | show customer names with their invoices
+  Expected : SELECT Customer.FirstName, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId
+  Got      : SELECT,, FROM Customer JOIN Invoice ON =
+  Error    : near ",": syntax error
+
+[FAIL] JOIN_SINGLE | show track names with their genre
+  Expected : SELECT Track.Name, Genre.Name FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId
+  Got      : SELECT, FROM Track JOIN Genre ON =
+  Error    : near ",": syntax error
+
+[FAIL] JOIN_SINGLE | count albums per artist name
+  Expected : SELECT Artist.Name, COUNT(*) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId GROUP BY Artist.ArtistId
+  Got      : SELECT, COUNT (*) FROM Artist JOIN Album ON =
+  Error    : near ",": syntax error
+
+[FAIL] JOIN_DOUBLE | show track names with album title and artist name
+  Expected : SELECT Track.Name, Album.Title, Artist.Name FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId
+  Got      : SELECT,, FROM Track JOIN Album ON = JOIN Artist ON =
+  Error    : near ",": syntax error
+
+[FAIL] JOIN_DOUBLE | show invoice line details with track names and customer names
+  Expected : SELECT Customer.FirstName, Track.Name FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+  Got      : SELECT,, FROM InvoiceLine Track ON = JOIN Track ON =
+  Error    : near ",": syntax error
+  Fixes    : 1 correction(s)
+
+[FAIL] JOIN_DOUBLE | show tracks with album and artist information
+  Expected : SELECT Track.Name, Album.Title, Artist.Name FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId
+  Got      : SELECT,, FROM Track JOIN Album ON = JOIN Artist ON =
+  Error    : near ",": syntax error
+
+[FAIL] JOIN_DOUBLE | show customer invoice and track details
+  Expected : SELECT Customer.FirstName, Invoice.Total, Track.Name FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId JOIN Track ON InvoiceLine.TrackId = Track.TrackId
+  Got      : SELECT,, FROM Customer JOIN Invoice ON = JOIN Track ON =
+  Error    : near ",": syntax error
+
+[FAIL] COMPLEX | top 5 artists by total number of tracks across all albums
+  Expected : SELECT Artist.Name, COUNT(Track.TrackId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Artist.ArtistId ORDER BY COUNT(Track.TrackId) DESC LIMIT 5
+  Got      : SELECT, COUNT () FROM Artist JOIN Album ON = JOIN Track ON = GROUP BY ORDER BY COUNT () DESC LIMIT 5
+  Error    : near ",": syntax error
+
+[FAIL] COMPLEX | show genre name and total revenue from tracks sold
+  Expected : SELECT Genre.Name, SUM(InvoiceLine.UnitPrice) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId JOIN InvoiceLine ON Track.TrackId = InvoiceLine.TrackId GROUP BY Genre.GenreId
+  Got      : SELECT, SUM (*) FROM Genre JOIN Track ON = JOIN Invoice = GROUP BY
+  Error    : near ",": syntax error
+  Fixes    : 1 correction(s)
+
+[FAIL] COMPLEX | show artist name album title and track count per album
+  Expected : SELECT Artist.Name, Album.Title, COUNT(Track.TrackId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Album.AlbumId
+  Got      : SELECT,, COUNT () FROM Artist JOIN Album ON = JOIN Track ON =
+  Error    : near ",": syntax error
+
+[FAIL] COMPLEX | which customers have above average spending
+  Expected : SELECT Customer.FirstName FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId HAVING SUM(Invoice.Total) > (SELECT AVG(Total) FROM Invoice)
+  Got      : SELECT, AVG () FROM Customer JOIN Invoice ON = HAVING
+  Error    : near ",": syntax error
+
+[FAIL] COMPLEX | show playlist name track name and artist name for all playlists
+  Expected : SELECT Playlist.Name, Track.Name, Artist.Name FROM Playlist JOIN PlaylistTrack ON Playlist.PlaylistId = PlaylistTrack.PlaylistId JOIN Track ON PlaylistTrack.TrackId = Track.TrackId JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId
+  Got      : SELECT,, FROM Track JOIN Artist ON = JOIN Artist ON =
+  Error    : near ",": syntax error
+
+[FAIL] COMPLEX | show customers who bought tracks from the rock genre
+  Expected : SELECT DISTINCT Customer.FirstName FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId JOIN Track ON InvoiceLine.TrackId = Track.TrackId JOIN Genre ON Track.GenreId = Genre.GenreId WHERE Genre.Name = 'Rock'
+  Got      : SELECT, FROM Genre Genre ON = JOIN Genre ON = 'Rock' WHERE Name = 'Rock'
+  Error    : near ",": syntax error
+  Fixes    : 2 correction(s)

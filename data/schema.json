@@ -1,0 +1,146 @@
+{
+  "tables": [
+    {
+      "name": "customers",
+      "description": "Stores customer profiles including name, contact details, gender, registration date, and loyalty tier.",
+      "synonyms": ["customer", "user", "buyer", "shopper", "client", "people", "members"],
+      "columns": [
+        {"name": "customer_id", "type": "INTEGER", "description": "Unique customer identifier (primary key)", "synonyms": ["customer no", "customer number", "cid"]},
+        {"name": "full_name", "type": "TEXT", "description": "Full name of the customer", "synonyms": ["name", "customer name", "user name"]},
+        {"name": "email", "type": "TEXT", "description": "Customer email address", "synonyms": ["email id", "mail", "email address"]},
+        {"name": "phone", "type": "TEXT", "description": "Phone number", "synonyms": ["mobile", "contact", "phone number", "cell"]},
+        {"name": "gender", "type": "TEXT", "description": "Gender of customer (Male/Female/Other)", "synonyms": ["sex"]},
+        {"name": "date_joined", "type": "DATE", "description": "Date when customer registered", "synonyms": ["joined", "signup date", "registration date", "joined date", "registered"]},
+        {"name": "loyalty_tier", "type": "TEXT", "description": "Loyalty level: Bronze, Silver, Gold, Platinum", "synonyms": ["tier", "loyalty", "membership", "level", "loyalty level"]}
+      ]
+    },
+    {
+      "name": "addresses",
+      "description": "Customer shipping and billing addresses with city, state, and pincode.",
+      "synonyms": ["address", "location", "shipping address", "delivery address"],
+      "columns": [
+        {"name": "address_id", "type": "INTEGER", "description": "Unique address identifier", "synonyms": ["aid"]},
+        {"name": "customer_id", "type": "INTEGER", "description": "Foreign key to customers", "synonyms": ["customer"]},
+        {"name": "address_type", "type": "TEXT", "description": "Home or Office", "synonyms": ["type", "kind"]},
+        {"name": "city", "type": "TEXT", "description": "City name", "synonyms": ["town", "place", "location"]},
+        {"name": "state", "type": "TEXT", "description": "State name", "synonyms": ["province", "region"]},
+        {"name": "pincode", "type": "TEXT", "description": "Postal pincode", "synonyms": ["zip", "zip code", "postal code", "pin"]}
+      ]
+    },
+    {
+      "name": "categories",
+      "description": "Product categories like Electronics, Fashion, Grocery, etc.",
+      "synonyms": ["category", "department", "section", "product type", "product category"],
+      "columns": [
+        {"name": "category_id", "type": "INTEGER", "description": "Unique category identifier", "synonyms": ["cat id"]},
+        {"name": "category_name", "type": "TEXT", "description": "Name of the category", "synonyms": ["category", "name", "department", "section"]}
+      ]
+    },
+    {
+      "name": "products",
+      "description": "Product catalog with name, brand, price, stock quantity, and average rating.",
+      "synonyms": ["product", "item", "sku", "goods", "merchandise", "inventory"],
+      "columns": [
+        {"name": "product_id", "type": "INTEGER", "description": "Unique product identifier", "synonyms": ["pid", "product no", "product number"]},
+        {"name": "product_name", "type": "TEXT", "description": "Name of the product", "synonyms": ["name", "product", "item name", "title"]},
+        {"name": "category_id", "type": "INTEGER", "description": "Foreign key to categories", "synonyms": ["category"]},
+        {"name": "brand", "type": "TEXT", "description": "Brand name", "synonyms": ["brand name", "make", "manufacturer", "company"]},
+        {"name": "unit_price", "type": "REAL", "description": "Price per unit in INR", "synonyms": ["price", "cost", "rate", "mrp", "amount"]},
+        {"name": "stock_qty", "type": "INTEGER", "description": "Available stock quantity", "synonyms": ["stock", "inventory", "available", "quantity in stock", "in stock"]},
+        {"name": "rating_avg", "type": "REAL", "description": "Average customer rating (0-5)", "synonyms": ["rating", "stars", "review score", "average rating", "score"]}
+      ]
+    },
+    {
+      "name": "orders",
+      "description": "Customer orders with status, date, total amount, and shipping address reference.",
+      "synonyms": ["order", "purchase", "transaction", "checkout", "booking"],
+      "columns": [
+        {"name": "order_id", "type": "INTEGER", "description": "Unique order identifier", "synonyms": ["order no", "order number", "oid"]},
+        {"name": "customer_id", "type": "INTEGER", "description": "Foreign key to customers", "synonyms": ["customer", "buyer"]},
+        {"name": "order_date", "type": "DATE", "description": "Date when order was placed", "synonyms": ["date", "purchase date", "order placed", "placed on", "ordered on"]},
+        {"name": "order_status", "type": "TEXT", "description": "Current status: Placed/Packed/Shipped/Delivered/Cancelled/Returned", "synonyms": ["status", "state", "order state"]},
+        {"name": "shipping_address_id", "type": "INTEGER", "description": "Foreign key to addresses", "synonyms": ["address", "shipping address"]},
+        {"name": "order_total", "type": "REAL", "description": "Total billed amount in INR", "synonyms": ["total", "bill", "amount", "final amount", "total amount", "value", "revenue", "sales"]}
+      ]
+    },
+    {
+      "name": "order_items",
+      "description": "Individual line items within orders - products, quantities, prices, discounts.",
+      "synonyms": ["order item", "line item", "order detail", "order product", "items ordered"],
+      "columns": [
+        {"name": "order_item_id", "type": "INTEGER", "description": "Unique line item identifier", "synonyms": ["item id"]},
+        {"name": "order_id", "type": "INTEGER", "description": "Foreign key to orders", "synonyms": ["order"]},
+        {"name": "product_id", "type": "INTEGER", "description": "Foreign key to products", "synonyms": ["product"]},
+        {"name": "quantity", "type": "INTEGER", "description": "Quantity ordered", "synonyms": ["qty", "count", "number", "units"]},
+        {"name": "unit_price", "type": "REAL", "description": "Price at time of purchase", "synonyms": ["price", "cost"]},
+        {"name": "discount_amount", "type": "REAL", "description": "Discount on this line item", "synonyms": ["discount", "savings"]},
+        {"name": "line_total", "type": "REAL", "description": "Total for this line (qty*price - discount)", "synonyms": ["total", "line amount", "subtotal"]}
+      ]
+    },
+    {
+      "name": "payments",
+      "description": "Payment records for orders including method (UPI/Card/COD), status, and amount.",
+      "synonyms": ["payment", "transaction", "billing", "paid"],
+      "columns": [
+        {"name": "payment_id", "type": "INTEGER", "description": "Unique payment identifier", "synonyms": ["pay id"]},
+        {"name": "order_id", "type": "INTEGER", "description": "Foreign key to orders", "synonyms": ["order"]},
+        {"name": "payment_date", "type": "DATE", "description": "Date of payment", "synonyms": ["paid on", "pay date", "transaction date"]},
+        {"name": "payment_method", "type": "TEXT", "description": "Method: UPI/Card/COD/NetBanking/Wallet", "synonyms": ["method", "mode", "payment type", "pay method", "payment mode"]},
+        {"name": "payment_status", "type": "TEXT", "description": "Status: Success/Failed/Pending/Refunded", "synonyms": ["status", "pay status", "payment state"]},
+        {"name": "amount_paid", "type": "REAL", "description": "Amount paid in INR", "synonyms": ["amount", "paid", "payment amount"]}
+      ]
+    },
+    {
+      "name": "shipments",
+      "description": "Shipping and delivery tracking for orders with courier info, dates, and fees.",
+      "synonyms": ["shipment", "delivery", "courier", "shipping", "dispatch", "parcel"],
+      "columns": [
+        {"name": "shipment_id", "type": "INTEGER", "description": "Unique shipment identifier", "synonyms": ["ship id"]},
+        {"name": "order_id", "type": "INTEGER", "description": "Foreign key to orders", "synonyms": ["order"]},
+        {"name": "courier_name", "type": "TEXT", "description": "Courier/delivery partner name", "synonyms": ["courier", "delivery partner", "carrier", "logistics"]},
+        {"name": "shipped_date", "type": "DATE", "description": "Date when shipped", "synonyms": ["ship date", "dispatched"]},
+        {"name": "delivered_date", "type": "DATE", "description": "Date when delivered", "synonyms": ["delivery date", "delivered on", "received"]},
+        {"name": "shipping_status", "type": "TEXT", "description": "Status: Shipped/InTransit/Delivered/Lost/ReturnedToSeller", "synonyms": ["status", "delivery status", "tracking status"]},
+        {"name": "shipping_fee", "type": "REAL", "description": "Shipping charges in INR", "synonyms": ["shipping cost", "delivery fee", "shipping charge", "delivery charge"]}
+      ]
+    },
+    {
+      "name": "returns",
+      "description": "Product return requests with reason, refund amount, and status.",
+      "synonyms": ["return", "refund", "replacement", "return request", "exchange"],
+      "columns": [
+        {"name": "return_id", "type": "INTEGER", "description": "Unique return identifier", "synonyms": ["rid"]},
+        {"name": "order_id", "type": "INTEGER", "description": "Foreign key to orders", "synonyms": ["order"]},
+        {"name": "return_date", "type": "DATE", "description": "Date when return was initiated", "synonyms": ["returned on", "return requested"]},
+        {"name": "return_reason", "type": "TEXT", "description": "Reason: Damaged/WrongItem/NotNeeded/Delayed/Other", "synonyms": ["reason", "issue", "problem", "cause"]},
+        {"name": "refund_amount", "type": "REAL", "description": "Refund amount in INR", "synonyms": ["refund", "money back", "refunded"]},
+        {"name": "return_status", "type": "TEXT", "description": "Status: Requested/Approved/PickedUp/Refunded/Rejected", "synonyms": ["status", "return state"]}
+      ]
+    },
+    {
+      "name": "promotions",
+      "description": "Promotional offers and discount codes with validity period and conditions.",
+      "synonyms": ["promotion", "promo", "coupon", "offer", "discount code", "deal", "voucher"],
+      "columns": [
+        {"name": "promo_id", "type": "INTEGER", "description": "Unique promotion identifier", "synonyms": ["pid"]},
+        {"name": "promo_code", "type": "TEXT", "description": "Coupon/promo code string", "synonyms": ["code", "coupon code", "voucher code"]},
+        {"name": "discount_type", "type": "TEXT", "description": "PERCENT or FIXED discount", "synonyms": ["type", "discount kind"]},
+        {"name": "discount_value", "type": "REAL", "description": "Discount amount or percentage", "synonyms": ["discount", "value", "off"]},
+        {"name": "start_date", "type": "DATE", "description": "Promotion start date", "synonyms": ["valid from", "starts"]},
+        {"name": "end_date", "type": "DATE", "description": "Promotion end date", "synonyms": ["valid until", "expires", "valid till", "expiry"]},
+        {"name": "min_order_value", "type": "REAL", "description": "Minimum order value to apply promo", "synonyms": ["minimum order", "min value", "min amount"]}
+      ]
+    }
+  ],
+  "joins": [
+    {"from": "orders", "to": "customers", "on": "orders.customer_id = customers.customer_id", "description": "Link orders to customer details"},
+    {"from": "orders", "to": "addresses", "on": "orders.shipping_address_id = addresses.address_id", "description": "Link orders to shipping address/city"},
+    {"from": "order_items", "to": "orders", "on": "order_items.order_id = orders.order_id", "description": "Link line items to orders"},
+    {"from": "order_items", "to": "products", "on": "order_items.product_id = products.product_id", "description": "Link line items to product details"},
+    {"from": "products", "to": "categories", "on": "products.category_id = categories.category_id", "description": "Link products to category name"},
+    {"from": "payments", "to": "orders", "on": "payments.order_id = orders.order_id", "description": "Link payments to orders"},
+    {"from": "shipments", "to": "orders", "on": "shipments.order_id = orders.order_id", "description": "Link shipments to orders"},
+    {"from": "returns", "to": "orders", "on": "returns.order_id = orders.order_id", "description": "Link returns to orders"},
+    {"from": "addresses", "to": "customers", "on": "addresses.customer_id = customers.customer_id", "description": "Link addresses to customers"}
+  ]
+}

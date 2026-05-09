@@ -1,0 +1,18 @@
+# NL2SQL — Neural Model Dependencies
+# Install with: pip install -r requirements_seq2sql.txt
+
+# Core ML
+torch>=2.0.0
+transformers>=4.35.0
+scikit-learn>=1.2.0
+numpy>=1.23.0
+pandas>=1.5.0
+
+# NLP
+nltk>=3.8.0
+
+# UI
+streamlit>=1.28.0
+
+# Progress bars
+tqdm>=4.65.0

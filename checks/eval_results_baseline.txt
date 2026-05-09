@@ -1,0 +1,194 @@
+NL2SQL Evaluation Results
+======================================================================
+
+Overall: 5/32 PASS, 27/32 FAIL
+
+By Category:
+  SELECT_SIMPLE        PASS:1 FAIL:3
+  FILTER_WHERE         PASS:0 FAIL:4
+  AGGREGATE            PASS:3 FAIL:1
+  GROUP_BY             PASS:0 FAIL:4
+  ORDER_LIMIT          PASS:0 FAIL:2
+  JOIN_SINGLE          PASS:1 FAIL:3
+  JOIN_DOUBLE          PASS:0 FAIL:4
+  COMPLEX              PASS:0 FAIL:6
+
+Detailed Results:
+----------------------------------------------------------------------
+
+[FAIL] SELECT_SIMPLE | show all artists
+  Expected : SELECT * FROM Artist
+  Got      : SELECT Artist FROM Artist WHERE Artist = Artist
+  Error    : no such column: Artist
+  Fixes    : 1 correction(s)
+
+[FAIL] SELECT_SIMPLE | list all genres
+  Expected : SELECT * FROM Genre
+  Got      : SELECT Genre FROM Playlist
+  Error    : no such column: Genre
+  Fixes    : 1 correction(s)
+
+[PASS] SELECT_SIMPLE | show all playlists
+  Expected : SELECT * FROM Playlist
+  Got      : SELECT DISTINCT * FROM Playlist
+  Fixes    : 1 correction(s)
+
+[FAIL] SELECT_SIMPLE | show all employees
+  Expected : SELECT * FROM Employee
+  Got      : SELECT DISTINCT FROM Employee Employee
+  Error    : near "FROM": syntax error
+  Fixes    : 1 correction(s)
+
+[FAIL] FILTER_WHERE | show customers from canada
+  Expected : SELECT * FROM Customer WHERE Country = 'Canada'
+  Got      : SELECT DISTINCT FROM Customer WHERE Country = canada
+  Error    : near "FROM": syntax error
+
+[FAIL] FILTER_WHERE | show customers from brazil
+  Expected : SELECT * FROM Customer WHERE Country = 'Brazil'
+  Got      : SELECT * FROM Customer WHERE Country = brazil
+  Error    : no such column: brazil
+  Fixes    : 1 correction(s)
+
+[FAIL] FILTER_WHERE | show invoices with total greater than 20
+  Expected : SELECT * FROM Invoice WHERE Total > 20
+  Got      : SELECT T2.roomName FROM Invoice WHERE Total > 20
+  Error    : no such column: T2.roomName
+  Fixes    : 1 correction(s)
+
+[FAIL] FILTER_WHERE | show tracks with price less than 1
+  Expected : SELECT * FROM Track WHERE UnitPrice < 1
+  Got      : SELECT * FROM Track WHERE Price < 1
+  Error    : no such column: Price
+  Fixes    : 1 correction(s)
+
+[FAIL] AGGREGATE | how many albums are there
+  Expected : SELECT COUNT(*) FROM Album
+  Got      : SELECT COUNT (*) FROM Album WHERE Album =
+  Error    : incomplete input
+
+[PASS] AGGREGATE | how many customers are there
+  Expected : SELECT COUNT(*) FROM Customer
+  Got      : SELECT COUNT (*) FROM Customer
+
+[PASS] AGGREGATE | what is the total revenue
+  Expected : SELECT SUM(Total) FROM Invoice
+  Got      : SELECT SUM(Total) FROM Invoice
+  Fixes    : 2 correction(s)
+
+[PASS] AGGREGATE | find the average invoice total
+  Expected : SELECT AVG(Total) FROM Invoice
+  Got      : SELECT AVG(Total) FROM Invoice
+  Fixes    : 2 correction(s)
+
+[FAIL] GROUP_BY | count customers by country
+  Expected : SELECT Country, COUNT(*) FROM Customer GROUP BY Country
+  Got      : SELECT T1.Country, COUNT (*) FROM Customer GROUP BY Country
+  Error    : no such column: T1.Country
+  Fixes    : 1 correction(s)
+
+[FAIL] GROUP_BY | total revenue by country
+  Expected : SELECT BillingCountry, SUM(Total) FROM Invoice GROUP BY BillingCountry
+  Got      : SELECT SUM (Total), revenue FROM Invoice GROUP BY BY
+  Error    : no such column: revenue
+  Fixes    : 1 correction(s)
+
+[FAIL] GROUP_BY | count albums by artist id
+  Expected : SELECT ArtistId, COUNT(*) FROM Album GROUP BY ArtistId
+  Got      : SELECT COUNT (*), Artist FROM Artist GROUP BY BY
+  Error    : no such column: Artist
+
+[FAIL] GROUP_BY | count tracks by media type id
+  Expected : SELECT MediaTypeId, COUNT(*) FROM Track GROUP BY MediaTypeId
+  Got      : SELECT COUNT, COUNT (*) FROM MediaType GROUP BY document_type_code
+  Error    : no such column: COUNT
+
+[FAIL] ORDER_LIMIT | show top 5 invoices by total
+  Expected : SELECT * FROM Invoice ORDER BY Total DESC LIMIT 5
+  Got      : SELECT * FROM Invoice GROUP BY followers 5 5 5
+  Error    : near "5": syntax error
+  Fixes    : 2 correction(s)
+
+[FAIL] ORDER_LIMIT | show top 5 artists alphabetically
+  Expected : SELECT * FROM Artist ORDER BY Name ASC LIMIT 5
+  Got      : SELECT COUNT FROM Artist Artist WHERE Artist = 5
+  Error    : no such column: COUNT
+  Fixes    : 2 correction(s)
+
+[FAIL] JOIN_SINGLE | show albums with artist names
+  Expected : SELECT Album.Title, Artist.Name FROM Album JOIN Artist ON Album.ArtistId = Artist.ArtistId
+  Got      : SELECT Album FROM Album JOIN Artist
+  Error    : no such column: Album
+  Fixes    : 1 correction(s)
+
+[FAIL] JOIN_SINGLE | show customer names with their invoices
+  Expected : SELECT Customer.FirstName, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId
+  Got      : SELECT fname, Email FROM Customer AS T1 JOIN Employee
+  Error    : no such column: fname
+
+[PASS] JOIN_SINGLE | show track names with their genre
+  Expected : SELECT Track.Name, Genre.Name FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId
+  Got      : SELECT Genre.Name, Genre.Name FROM Genre JOIN Track ON Track.GenreId = Genre.GenreId WHERE Genre.Name = "Rock"
+  Fixes    : 3 correction(s)
+
+[FAIL] JOIN_SINGLE | count albums per artist name
+  Expected : SELECT Artist.Name, COUNT(*) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId GROUP BY Artist.ArtistId
+  Got      : SELECT COUNT (* COUNT (*) FROM Artist GROUP BY T1
+  Error    : near "COUNT": syntax error
+
+[FAIL] JOIN_DOUBLE | show track names with album title and artist name
+  Expected : SELECT Track.Name, Album.Title, Artist.Name FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId
+  Got      : SELECT Album.Title, Album.Title FROM Album JOIN Album ON Album.ArtistId = T2.AlbumId JOIN Album ON Album.Title = T3.songid
+  Error    : ambiguous column name: Album.Title
+  Fixes    : 3 correction(s)
+
+[FAIL] JOIN_DOUBLE | show invoice line details with track names and customer names
+  Expected : SELECT Customer.FirstName, Track.Name FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+  Got      : SELECT Customer.Title, Invoice.CustomerId FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId JOIN InvoiceLine ON Customer.SupportRepId = T3
+  Error    : no such column: Customer.Title
+  Fixes    : 3 correction(s)
+
+[FAIL] JOIN_DOUBLE | show tracks with album and artist information
+  Expected : SELECT Track.Name, Album.Title, Artist.Name FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId
+  Got      : SELECT Album.Title, Album FROM Album JOIN Album ON Album.ArtistId = T2.AlbumId WHERE Album.Title = T3 ON Album.Title = T3.songid
+  Error    : near "ON": syntax error
+  Fixes    : 2 correction(s)
+
+[FAIL] JOIN_DOUBLE | show customer invoice and track details
+  Expected : SELECT Customer.FirstName, Invoice.Total, Track.Name FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId JOIN Track ON InvoiceLine.TrackId = Track.TrackId
+  Got      : SELECT DISTINCT, LastName FROM Customer
+  Error    : near ",": syntax error
+
+[FAIL] COMPLEX | top 5 artists by total number of tracks across all albums
+  Expected : SELECT Artist.Name, COUNT(Track.TrackId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Artist.ArtistId ORDER BY COUNT(Track.TrackId) DESC LIMIT 5
+  Got      : SELECT Album.Title, instrument) FROM Album JOIN Album ON Album.ArtistId = T2.artist_name GROUP BY ORDER BY COUNT (*) DESC LIMIT 5
+  Error    : near ")": syntax error
+  Fixes    : 2 correction(s)
+
+[FAIL] COMPLEX | show genre name and total revenue from tracks sold
+  Expected : SELECT Genre.Name, SUM(InvoiceLine.UnitPrice) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId JOIN InvoiceLine ON Track.TrackId = InvoiceLine.TrackId GROUP BY Genre.GenreId
+  Got      : SELECT Track.Name, SUM(UnitPrice) FROM Track JOIN Track ON Track.GenreId = Track.GenreId GROUP BY =
+  Error    : near "=": syntax error
+  Fixes    : 3 correction(s)
+
+[FAIL] COMPLEX | show artist name album title and track count per album
+  Expected : SELECT Artist.Name, Album.Title, COUNT(Track.TrackId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Album.AlbumId
+  Got      : SELECT Album.Title, COUNT (*) FROM Album JOIN Album ON Album.ArtistId = T2.id GROUP BY GROUP BY COUNT (*
+  Error    : near "GROUP": syntax error
+  Fixes    : 2 correction(s)
+
+[FAIL] COMPLEX | which customers have above average spending
+  Expected : SELECT Customer.FirstName FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId HAVING SUM(Invoice.Total) > (SELECT AVG(Total) FROM Invoice)
+  Got      : SELECT * FROM Customer WHERE credit_score > (SELECT AVG (AVG) FROM))
+  Error    : near ")": syntax error
+
+[FAIL] COMPLEX | show playlist name track name and artist name for all playlists
+  Expected : SELECT Playlist.Name, Track.Name, Artist.Name FROM Playlist JOIN PlaylistTrack ON Playlist.PlaylistId = PlaylistTrack.PlaylistId JOIN Track ON PlaylistTrack.TrackId = Track.TrackId JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId
+  Got      : SELECT Track.Name, Track.Name FROM Playlist JOIN Track ON T1.songid = Track.AlbumId
+  Error    : no such column: T1.songid
+
+[FAIL] COMPLEX | show customers who bought tracks from the rock genre
+  Expected : SELECT DISTINCT Customer.FirstName FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId JOIN Track ON InvoiceLine.TrackId = Track.TrackId JOIN Genre ON Track.GenreId = Genre.GenreId WHERE Genre.Name = 'Rock'
+  Got      : SELECT T1.Name FROM Genre.Country AS T1 JOIN Genre AS T2 ON T1.id = T3 JOIN Genre.Country AS T3 ON T1.Country = "Rock" WHERE Name = 'Rock'
+  Error    : no such table: Genre.Country
+  Fixes    : 4 correction(s)

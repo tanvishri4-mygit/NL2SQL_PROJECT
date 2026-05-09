@@ -1,0 +1,4 @@
+question,sql,db_id,source
+give count of albums each artist has,"SELECT Artist.Name, COUNT(Album.AlbumId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId GROUP BY Artist.Name",chinook_1,feedback_positive
+show all customers from India,SELECT * FROM Customer WHERE Country = 'India',chinook_1,feedback_positive
+show all customers from India,SELECT * FROM Customer WHERE Country = 'India',chinook_1,feedback_positive

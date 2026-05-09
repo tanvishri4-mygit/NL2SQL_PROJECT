@@ -1,0 +1,482 @@
+question,sql,db_id,source
+show all artists,SELECT * FROM Artist,chinook_1,chinook_manual
+list all artists,SELECT * FROM Artist,chinook_1,chinook_manual
+display all artists,SELECT * FROM Artist,chinook_1,chinook_manual
+get all artists,SELECT * FROM Artist,chinook_1,chinook_manual
+show artist names,SELECT Name FROM Artist,chinook_1,chinook_manual
+list artist names,SELECT Name FROM Artist,chinook_1,chinook_manual
+show all albums,SELECT * FROM Album,chinook_1,chinook_manual
+list all albums,SELECT * FROM Album,chinook_1,chinook_manual
+show album titles,SELECT Title FROM Album,chinook_1,chinook_manual
+list album titles,SELECT Title FROM Album,chinook_1,chinook_manual
+show all tracks,SELECT * FROM Track,chinook_1,chinook_manual
+list all tracks,SELECT * FROM Track,chinook_1,chinook_manual
+show track names,SELECT Name FROM Track,chinook_1,chinook_manual
+list track names,SELECT Name FROM Track,chinook_1,chinook_manual
+show all customers,SELECT * FROM Customer,chinook_1,chinook_manual
+list all customers,SELECT * FROM Customer,chinook_1,chinook_manual
+show customer names,"SELECT FirstName, LastName FROM Customer",chinook_1,chinook_manual
+show all employees,SELECT * FROM Employee,chinook_1,chinook_manual
+list all employees,SELECT * FROM Employee,chinook_1,chinook_manual
+show employee names,"SELECT FirstName, LastName FROM Employee",chinook_1,chinook_manual
+show all genres,SELECT * FROM Genre,chinook_1,chinook_manual
+list all genres,SELECT * FROM Genre,chinook_1,chinook_manual
+show genre names,SELECT Name FROM Genre,chinook_1,chinook_manual
+show all invoices,SELECT * FROM Invoice,chinook_1,chinook_manual
+list all invoices,SELECT * FROM Invoice,chinook_1,chinook_manual
+show all playlists,SELECT * FROM Playlist,chinook_1,chinook_manual
+list all playlists,SELECT * FROM Playlist,chinook_1,chinook_manual
+show playlist names,SELECT Name FROM Playlist,chinook_1,chinook_manual
+show all media types,SELECT * FROM MediaType,chinook_1,chinook_manual
+list media type names,SELECT Name FROM MediaType,chinook_1,chinook_manual
+show all invoice lines,SELECT * FROM InvoiceLine,chinook_1,chinook_manual
+show customer emails,SELECT Email FROM Customer,chinook_1,chinook_manual
+show customer countries,SELECT Country FROM Customer,chinook_1,chinook_manual
+show track prices,"SELECT Name, UnitPrice FROM Track",chinook_1,chinook_manual
+show invoice totals,"SELECT InvoiceId, Total FROM Invoice",chinook_1,chinook_manual
+show employee titles,"SELECT FirstName, LastName, Title FROM Employee",chinook_1,chinook_manual
+show album and artist id,"SELECT Title, ArtistId FROM Album",chinook_1,chinook_manual
+show track composers,"SELECT Name, Composer FROM Track",chinook_1,chinook_manual
+show invoice dates,"SELECT InvoiceId, InvoiceDate FROM Invoice",chinook_1,chinook_manual
+show customer cities,"SELECT FirstName, LastName, City FROM Customer",chinook_1,chinook_manual
+show customers from usa,SELECT * FROM Customer WHERE Country = 'USA',chinook_1,chinook_manual
+show customers from germany,SELECT * FROM Customer WHERE Country = 'Germany',chinook_1,chinook_manual
+show customers from canada,SELECT * FROM Customer WHERE Country = 'Canada',chinook_1,chinook_manual
+show customers from brazil,SELECT * FROM Customer WHERE Country = 'Brazil',chinook_1,chinook_manual
+show customers from france,SELECT * FROM Customer WHERE Country = 'France',chinook_1,chinook_manual
+show customers from united kingdom,SELECT * FROM Customer WHERE Country = 'United Kingdom',chinook_1,chinook_manual
+show customers from australia,SELECT * FROM Customer WHERE Country = 'Australia',chinook_1,chinook_manual
+show customers from india,SELECT * FROM Customer WHERE Country = 'India',chinook_1,chinook_manual
+show customers from portugal,SELECT * FROM Customer WHERE Country = 'Portugal',chinook_1,chinook_manual
+show customers from norway,SELECT * FROM Customer WHERE Country = 'Norway',chinook_1,chinook_manual
+list customers in usa,SELECT * FROM Customer WHERE Country = 'USA',chinook_1,chinook_manual
+find customers from usa,SELECT * FROM Customer WHERE Country = 'USA',chinook_1,chinook_manual
+customers who are from germany,SELECT * FROM Customer WHERE Country = 'Germany',chinook_1,chinook_manual
+show customers where country is usa,SELECT * FROM Customer WHERE Country = 'USA',chinook_1,chinook_manual
+show invoices with total greater than 10,SELECT * FROM Invoice WHERE Total > 10,chinook_1,chinook_manual
+show invoices with total greater than 20,SELECT * FROM Invoice WHERE Total > 20,chinook_1,chinook_manual
+show invoices with total greater than 5,SELECT * FROM Invoice WHERE Total > 5,chinook_1,chinook_manual
+show invoices with total less than 5,SELECT * FROM Invoice WHERE Total < 5,chinook_1,chinook_manual
+show invoices with total less than 2,SELECT * FROM Invoice WHERE Total < 2,chinook_1,chinook_manual
+show invoices where total equals 1.98,SELECT * FROM Invoice WHERE Total = 1.98,chinook_1,chinook_manual
+show tracks where price is 0.99,SELECT * FROM Track WHERE UnitPrice = 0.99,chinook_1,chinook_manual
+show tracks with price less than 1,SELECT * FROM Track WHERE UnitPrice < 1,chinook_1,chinook_manual
+show tracks with price greater than 1,SELECT * FROM Track WHERE UnitPrice > 1,chinook_1,chinook_manual
+find tracks costing 0.99,SELECT * FROM Track WHERE UnitPrice = 0.99,chinook_1,chinook_manual
+show employees with title sales support agent,SELECT * FROM Employee WHERE Title = 'Sales Support Agent',chinook_1,chinook_manual
+show employees with title it manager,SELECT * FROM Employee WHERE Title = 'IT Manager',chinook_1,chinook_manual
+show employees with title general manager,SELECT * FROM Employee WHERE Title = 'General Manager',chinook_1,chinook_manual
+find employees who are sales support agents,SELECT * FROM Employee WHERE Title = 'Sales Support Agent',chinook_1,chinook_manual
+show customers in new york,SELECT * FROM Customer WHERE City = 'New York',chinook_1,chinook_manual
+show customers in paris,SELECT * FROM Customer WHERE City = 'Paris',chinook_1,chinook_manual
+show customers in london,SELECT * FROM Customer WHERE City = 'London',chinook_1,chinook_manual
+show customers in berlin,SELECT * FROM Customer WHERE City = 'Berlin',chinook_1,chinook_manual
+show customers in sao paulo,SELECT * FROM Customer WHERE City = 'São Paulo',chinook_1,chinook_manual
+show invoices billed to usa,SELECT * FROM Invoice WHERE BillingCountry = 'USA',chinook_1,chinook_manual
+show invoices billed to germany,SELECT * FROM Invoice WHERE BillingCountry = 'Germany',chinook_1,chinook_manual
+show invoices billed to canada,SELECT * FROM Invoice WHERE BillingCountry = 'Canada',chinook_1,chinook_manual
+show invoices billed to france,SELECT * FROM Invoice WHERE BillingCountry = 'France',chinook_1,chinook_manual
+show invoices billed to brazil,SELECT * FROM Invoice WHERE BillingCountry = 'Brazil',chinook_1,chinook_manual
+show invoices from 2013,SELECT * FROM Invoice WHERE InvoiceDate LIKE '2013%',chinook_1,chinook_manual
+show invoices from 2012,SELECT * FROM Invoice WHERE InvoiceDate LIKE '2012%',chinook_1,chinook_manual
+show invoices from 2011,SELECT * FROM Invoice WHERE InvoiceDate LIKE '2011%',chinook_1,chinook_manual
+show tracks with genre id 1,SELECT * FROM Track WHERE GenreId = 1,chinook_1,chinook_manual
+show tracks with genre id 2,SELECT * FROM Track WHERE GenreId = 2,chinook_1,chinook_manual
+show tracks in album 1,SELECT * FROM Track WHERE AlbumId = 1,chinook_1,chinook_manual
+show tracks in album 2,SELECT * FROM Track WHERE AlbumId = 2,chinook_1,chinook_manual
+show tracks longer than 300000 milliseconds,SELECT * FROM Track WHERE Milliseconds > 300000,chinook_1,chinook_manual
+show tracks shorter than 200000 milliseconds,SELECT * FROM Track WHERE Milliseconds < 200000,chinook_1,chinook_manual
+show customers with gmail email,SELECT * FROM Customer WHERE Email LIKE '%gmail%',chinook_1,chinook_manual
+show customers without a company,SELECT * FROM Customer WHERE Company IS NULL,chinook_1,chinook_manual
+show employees hired after 2002,SELECT * FROM Employee WHERE HireDate > '2002-01-01',chinook_1,chinook_manual
+show invoice lines with quantity greater than 1,SELECT * FROM InvoiceLine WHERE Quantity > 1,chinook_1,chinook_manual
+show albums with artist id 1,SELECT * FROM Album WHERE ArtistId = 1,chinook_1,chinook_manual
+show albums with artist id 2,SELECT * FROM Album WHERE ArtistId = 2,chinook_1,chinook_manual
+show customers where state is ca,SELECT * FROM Customer WHERE State = 'CA',chinook_1,chinook_manual
+show customers where country is not usa,SELECT * FROM Customer WHERE Country != 'USA',chinook_1,chinook_manual
+show invoices with total between 5 and 15,SELECT * FROM Invoice WHERE Total BETWEEN 5 AND 15,chinook_1,chinook_manual
+show tracks where composer is not null,SELECT * FROM Track WHERE Composer IS NOT NULL,chinook_1,chinook_manual
+show customer first names starting with a,SELECT * FROM Customer WHERE FirstName LIKE 'A%',chinook_1,chinook_manual
+show employee last names starting with m,SELECT * FROM Employee WHERE LastName LIKE 'M%',chinook_1,chinook_manual
+show albums where title contains rock,SELECT * FROM Album WHERE Title LIKE '%rock%',chinook_1,chinook_manual
+how many artists are there,SELECT COUNT(*) FROM Artist,chinook_1,chinook_manual
+count all artists,SELECT COUNT(*) FROM Artist,chinook_1,chinook_manual
+total number of artists,SELECT COUNT(*) FROM Artist,chinook_1,chinook_manual
+how many albums are there,SELECT COUNT(*) FROM Album,chinook_1,chinook_manual
+count all albums,SELECT COUNT(*) FROM Album,chinook_1,chinook_manual
+how many tracks are there,SELECT COUNT(*) FROM Track,chinook_1,chinook_manual
+count all tracks,SELECT COUNT(*) FROM Track,chinook_1,chinook_manual
+how many customers are there,SELECT COUNT(*) FROM Customer,chinook_1,chinook_manual
+count all customers,SELECT COUNT(*) FROM Customer,chinook_1,chinook_manual
+total number of customers,SELECT COUNT(*) FROM Customer,chinook_1,chinook_manual
+how many employees are there,SELECT COUNT(*) FROM Employee,chinook_1,chinook_manual
+count all employees,SELECT COUNT(*) FROM Employee,chinook_1,chinook_manual
+how many invoices are there,SELECT COUNT(*) FROM Invoice,chinook_1,chinook_manual
+count all invoices,SELECT COUNT(*) FROM Invoice,chinook_1,chinook_manual
+how many genres are there,SELECT COUNT(*) FROM Genre,chinook_1,chinook_manual
+count all genres,SELECT COUNT(*) FROM Genre,chinook_1,chinook_manual
+how many playlists are there,SELECT COUNT(*) FROM Playlist,chinook_1,chinook_manual
+how many media types are there,SELECT COUNT(*) FROM MediaType,chinook_1,chinook_manual
+what is the total revenue,SELECT SUM(Total) FROM Invoice,chinook_1,chinook_manual
+total sales amount,SELECT SUM(Total) FROM Invoice,chinook_1,chinook_manual
+sum of all invoice totals,SELECT SUM(Total) FROM Invoice,chinook_1,chinook_manual
+what is the total of all invoices,SELECT SUM(Total) FROM Invoice,chinook_1,chinook_manual
+find the average invoice total,SELECT AVG(Total) FROM Invoice,chinook_1,chinook_manual
+average invoice amount,SELECT AVG(Total) FROM Invoice,chinook_1,chinook_manual
+what is the average order value,SELECT AVG(Total) FROM Invoice,chinook_1,chinook_manual
+mean invoice total,SELECT AVG(Total) FROM Invoice,chinook_1,chinook_manual
+what is the maximum invoice total,SELECT MAX(Total) FROM Invoice,chinook_1,chinook_manual
+find the highest invoice,SELECT MAX(Total) FROM Invoice,chinook_1,chinook_manual
+largest invoice amount,SELECT MAX(Total) FROM Invoice,chinook_1,chinook_manual
+what is the minimum invoice total,SELECT MIN(Total) FROM Invoice,chinook_1,chinook_manual
+find the lowest invoice,SELECT MIN(Total) FROM Invoice,chinook_1,chinook_manual
+smallest invoice amount,SELECT MIN(Total) FROM Invoice,chinook_1,chinook_manual
+average track price,SELECT AVG(UnitPrice) FROM Track,chinook_1,chinook_manual
+maximum track price,SELECT MAX(UnitPrice) FROM Track,chinook_1,chinook_manual
+minimum track price,SELECT MIN(UnitPrice) FROM Track,chinook_1,chinook_manual
+total quantity sold,SELECT SUM(Quantity) FROM InvoiceLine,chinook_1,chinook_manual
+average quantity per invoice line,SELECT AVG(Quantity) FROM InvoiceLine,chinook_1,chinook_manual
+how many tracks have a composer,SELECT COUNT(*) FROM Track WHERE Composer IS NOT NULL,chinook_1,chinook_manual
+how many customers are from usa,SELECT COUNT(*) FROM Customer WHERE Country = 'USA',chinook_1,chinook_manual
+how many customers are from germany,SELECT COUNT(*) FROM Customer WHERE Country = 'Germany',chinook_1,chinook_manual
+how many invoices are from usa,SELECT COUNT(*) FROM Invoice WHERE BillingCountry = 'USA',chinook_1,chinook_manual
+total revenue from usa,SELECT SUM(Total) FROM Invoice WHERE BillingCountry = 'USA',chinook_1,chinook_manual
+total revenue from germany,SELECT SUM(Total) FROM Invoice WHERE BillingCountry = 'Germany',chinook_1,chinook_manual
+average invoice total for usa,SELECT AVG(Total) FROM Invoice WHERE BillingCountry = 'USA',chinook_1,chinook_manual
+maximum invoice total for usa,SELECT MAX(Total) FROM Invoice WHERE BillingCountry = 'USA',chinook_1,chinook_manual
+how many tracks cost 0.99,SELECT COUNT(*) FROM Track WHERE UnitPrice = 0.99,chinook_1,chinook_manual
+total duration of all tracks,SELECT SUM(Milliseconds) FROM Track,chinook_1,chinook_manual
+average track duration,SELECT AVG(Milliseconds) FROM Track,chinook_1,chinook_manual
+longest track duration,SELECT MAX(Milliseconds) FROM Track,chinook_1,chinook_manual
+shortest track duration,SELECT MIN(Milliseconds) FROM Track,chinook_1,chinook_manual
+count customers by country,"SELECT Country, COUNT(*) FROM Customer GROUP BY Country",chinook_1,chinook_manual
+number of customers per country,"SELECT Country, COUNT(*) FROM Customer GROUP BY Country",chinook_1,chinook_manual
+how many customers in each country,"SELECT Country, COUNT(*) FROM Customer GROUP BY Country",chinook_1,chinook_manual
+customers grouped by country,"SELECT Country, COUNT(*) FROM Customer GROUP BY Country",chinook_1,chinook_manual
+count customers per country,"SELECT Country, COUNT(*) FROM Customer GROUP BY Country",chinook_1,chinook_manual
+total revenue by country,"SELECT BillingCountry, SUM(Total) FROM Invoice GROUP BY BillingCountry",chinook_1,chinook_manual
+revenue per country,"SELECT BillingCountry, SUM(Total) FROM Invoice GROUP BY BillingCountry",chinook_1,chinook_manual
+sum of invoices by country,"SELECT BillingCountry, SUM(Total) FROM Invoice GROUP BY BillingCountry",chinook_1,chinook_manual
+total sales by billing country,"SELECT BillingCountry, SUM(Total) FROM Invoice GROUP BY BillingCountry",chinook_1,chinook_manual
+invoice total grouped by country,"SELECT BillingCountry, SUM(Total) FROM Invoice GROUP BY BillingCountry",chinook_1,chinook_manual
+count invoices by country,"SELECT BillingCountry, COUNT(*) FROM Invoice GROUP BY BillingCountry",chinook_1,chinook_manual
+number of invoices per country,"SELECT BillingCountry, COUNT(*) FROM Invoice GROUP BY BillingCountry",chinook_1,chinook_manual
+count tracks by genre,"SELECT GenreId, COUNT(*) FROM Track GROUP BY GenreId",chinook_1,chinook_manual
+number of tracks per genre,"SELECT GenreId, COUNT(*) FROM Track GROUP BY GenreId",chinook_1,chinook_manual
+how many tracks in each genre,"SELECT GenreId, COUNT(*) FROM Track GROUP BY GenreId",chinook_1,chinook_manual
+tracks grouped by genre,"SELECT GenreId, COUNT(*) FROM Track GROUP BY GenreId",chinook_1,chinook_manual
+count albums by artist,"SELECT ArtistId, COUNT(*) FROM Album GROUP BY ArtistId",chinook_1,chinook_manual
+number of albums per artist,"SELECT ArtistId, COUNT(*) FROM Album GROUP BY ArtistId",chinook_1,chinook_manual
+how many albums per artist id,"SELECT ArtistId, COUNT(*) FROM Album GROUP BY ArtistId",chinook_1,chinook_manual
+albums grouped by artist,"SELECT ArtistId, COUNT(*) FROM Album GROUP BY ArtistId",chinook_1,chinook_manual
+count tracks by album,"SELECT AlbumId, COUNT(*) FROM Track GROUP BY AlbumId",chinook_1,chinook_manual
+number of tracks per album,"SELECT AlbumId, COUNT(*) FROM Track GROUP BY AlbumId",chinook_1,chinook_manual
+count tracks by media type,"SELECT MediaTypeId, COUNT(*) FROM Track GROUP BY MediaTypeId",chinook_1,chinook_manual
+average invoice by country,"SELECT BillingCountry, AVG(Total) FROM Invoice GROUP BY BillingCountry",chinook_1,chinook_manual
+average invoice total per country,"SELECT BillingCountry, AVG(Total) FROM Invoice GROUP BY BillingCountry",chinook_1,chinook_manual
+maximum invoice by country,"SELECT BillingCountry, MAX(Total) FROM Invoice GROUP BY BillingCountry",chinook_1,chinook_manual
+minimum invoice by country,"SELECT BillingCountry, MIN(Total) FROM Invoice GROUP BY BillingCountry",chinook_1,chinook_manual
+total invoice lines per invoice,"SELECT InvoiceId, COUNT(*) FROM InvoiceLine GROUP BY InvoiceId",chinook_1,chinook_manual
+count invoice lines by invoice,"SELECT InvoiceId, COUNT(*) FROM InvoiceLine GROUP BY InvoiceId",chinook_1,chinook_manual
+count customers by city,"SELECT City, COUNT(*) FROM Customer GROUP BY City",chinook_1,chinook_manual
+number of customers per city,"SELECT City, COUNT(*) FROM Customer GROUP BY City",chinook_1,chinook_manual
+count customers by state,"SELECT State, COUNT(*) FROM Customer GROUP BY State",chinook_1,chinook_manual
+count employees by title,"SELECT Title, COUNT(*) FROM Employee GROUP BY Title",chinook_1,chinook_manual
+number of employees per title,"SELECT Title, COUNT(*) FROM Employee GROUP BY Title",chinook_1,chinook_manual
+total track duration by album,"SELECT AlbumId, SUM(Milliseconds) FROM Track GROUP BY AlbumId",chinook_1,chinook_manual
+average track duration by album,"SELECT AlbumId, AVG(Milliseconds) FROM Track GROUP BY AlbumId",chinook_1,chinook_manual
+total track price by genre,"SELECT GenreId, SUM(UnitPrice) FROM Track GROUP BY GenreId",chinook_1,chinook_manual
+average track price by genre,"SELECT GenreId, AVG(UnitPrice) FROM Track GROUP BY GenreId",chinook_1,chinook_manual
+count tracks by composer,"SELECT Composer, COUNT(*) FROM Track GROUP BY Composer",chinook_1,chinook_manual
+total revenue by billing city,"SELECT BillingCity, SUM(Total) FROM Invoice GROUP BY BillingCity",chinook_1,chinook_manual
+count invoices by billing city,"SELECT BillingCity, COUNT(*) FROM Invoice GROUP BY BillingCity",chinook_1,chinook_manual
+count invoices by year,"SELECT strftime('%Y', InvoiceDate), COUNT(*) FROM Invoice GROUP BY strftime('%Y', InvoiceDate)",chinook_1,chinook_manual
+total revenue by year,"SELECT strftime('%Y', InvoiceDate), SUM(Total) FROM Invoice GROUP BY strftime('%Y', InvoiceDate)",chinook_1,chinook_manual
+count playlists by name,"SELECT Name, COUNT(*) FROM Playlist GROUP BY Name",chinook_1,chinook_manual
+count albums per genre through tracks,"SELECT GenreId, COUNT(DISTINCT AlbumId) FROM Track GROUP BY GenreId",chinook_1,chinook_manual
+average invoice total by billing state,"SELECT BillingState, AVG(Total) FROM Invoice GROUP BY BillingState",chinook_1,chinook_manual
+total sales per invoice,"SELECT InvoiceId, SUM(UnitPrice * Quantity) FROM InvoiceLine GROUP BY InvoiceId",chinook_1,chinook_manual
+count invoice lines by track,"SELECT TrackId, COUNT(*) FROM InvoiceLine GROUP BY TrackId",chinook_1,chinook_manual
+number of tracks per media type id,"SELECT MediaTypeId, COUNT(*) FROM Track GROUP BY MediaTypeId",chinook_1,chinook_manual
+count albums by artist id,"SELECT ArtistId, COUNT(*) FROM Album GROUP BY ArtistId",chinook_1,chinook_manual
+number of customers by country having more than 5,"SELECT Country, COUNT(*) FROM Customer GROUP BY Country HAVING COUNT(*) > 5",chinook_1,chinook_manual
+countries with more than 3 invoices,"SELECT BillingCountry, COUNT(*) FROM Invoice GROUP BY BillingCountry HAVING COUNT(*) > 3",chinook_1,chinook_manual
+genres with over 50 tracks,"SELECT GenreId, COUNT(*) FROM Track GROUP BY GenreId HAVING COUNT(*) > 50",chinook_1,chinook_manual
+artists having more than 5 albums,"SELECT ArtistId, COUNT(*) FROM Album GROUP BY ArtistId HAVING COUNT(*) > 5",chinook_1,chinook_manual
+count customers per country order by count,"SELECT Country, COUNT(*) FROM Customer GROUP BY Country ORDER BY COUNT(*) DESC",chinook_1,chinook_manual
+total revenue by country order by revenue,"SELECT BillingCountry, SUM(Total) FROM Invoice GROUP BY BillingCountry ORDER BY SUM(Total) DESC",chinook_1,chinook_manual
+count tracks per genre order by count,"SELECT GenreId, COUNT(*) FROM Track GROUP BY GenreId ORDER BY COUNT(*) DESC",chinook_1,chinook_manual
+count albums per artist order by count,"SELECT ArtistId, COUNT(*) FROM Album GROUP BY ArtistId ORDER BY COUNT(*) DESC",chinook_1,chinook_manual
+average invoice by country order by average,"SELECT BillingCountry, AVG(Total) FROM Invoice GROUP BY BillingCountry ORDER BY AVG(Total) DESC",chinook_1,chinook_manual
+show top 5 invoices by total,SELECT * FROM Invoice ORDER BY Total DESC LIMIT 5,chinook_1,chinook_manual
+top 10 invoices by total,SELECT * FROM Invoice ORDER BY Total DESC LIMIT 10,chinook_1,chinook_manual
+show top 3 invoices by total,SELECT * FROM Invoice ORDER BY Total DESC LIMIT 3,chinook_1,chinook_manual
+highest 5 invoices,SELECT * FROM Invoice ORDER BY Total DESC LIMIT 5,chinook_1,chinook_manual
+show the most expensive invoices,SELECT * FROM Invoice ORDER BY Total DESC LIMIT 10,chinook_1,chinook_manual
+show cheapest 5 invoices,SELECT * FROM Invoice ORDER BY Total ASC LIMIT 5,chinook_1,chinook_manual
+show latest 10 invoices,SELECT * FROM Invoice ORDER BY InvoiceDate DESC LIMIT 10,chinook_1,chinook_manual
+show latest 5 invoices,SELECT * FROM Invoice ORDER BY InvoiceDate DESC LIMIT 5,chinook_1,chinook_manual
+show oldest 5 invoices,SELECT * FROM Invoice ORDER BY InvoiceDate ASC LIMIT 5,chinook_1,chinook_manual
+show most recent invoice,SELECT * FROM Invoice ORDER BY InvoiceDate DESC LIMIT 1,chinook_1,chinook_manual
+show tracks sorted by price,SELECT * FROM Track ORDER BY UnitPrice,chinook_1,chinook_manual
+show tracks sorted by price descending,SELECT * FROM Track ORDER BY UnitPrice DESC,chinook_1,chinook_manual
+show tracks sorted by price ascending,SELECT * FROM Track ORDER BY UnitPrice ASC,chinook_1,chinook_manual
+show top 5 most expensive tracks,SELECT * FROM Track ORDER BY UnitPrice DESC LIMIT 5,chinook_1,chinook_manual
+show top 10 cheapest tracks,SELECT * FROM Track ORDER BY UnitPrice ASC LIMIT 10,chinook_1,chinook_manual
+show artists sorted by name,SELECT * FROM Artist ORDER BY Name,chinook_1,chinook_manual
+show artists in alphabetical order,SELECT * FROM Artist ORDER BY Name ASC,chinook_1,chinook_manual
+show artists in reverse alphabetical order,SELECT * FROM Artist ORDER BY Name DESC,chinook_1,chinook_manual
+show first 10 artists alphabetically,SELECT * FROM Artist ORDER BY Name ASC LIMIT 10,chinook_1,chinook_manual
+show albums sorted by title,SELECT * FROM Album ORDER BY Title,chinook_1,chinook_manual
+show top 10 albums alphabetically,SELECT * FROM Album ORDER BY Title ASC LIMIT 10,chinook_1,chinook_manual
+show customers sorted by country,SELECT * FROM Customer ORDER BY Country,chinook_1,chinook_manual
+show customers in alphabetical order by last name,SELECT * FROM Customer ORDER BY LastName ASC,chinook_1,chinook_manual
+show first 5 customers by name,SELECT * FROM Customer ORDER BY LastName ASC LIMIT 5,chinook_1,chinook_manual
+show top 5 longest tracks,SELECT * FROM Track ORDER BY Milliseconds DESC LIMIT 5,chinook_1,chinook_manual
+show top 5 shortest tracks,SELECT * FROM Track ORDER BY Milliseconds ASC LIMIT 5,chinook_1,chinook_manual
+show top 10 largest tracks by file size,SELECT * FROM Track ORDER BY Bytes DESC LIMIT 10,chinook_1,chinook_manual
+show employees sorted by hire date,SELECT * FROM Employee ORDER BY HireDate,chinook_1,chinook_manual
+show first hired employee,SELECT * FROM Employee ORDER BY HireDate ASC LIMIT 1,chinook_1,chinook_manual
+show most recently hired employee,SELECT * FROM Employee ORDER BY HireDate DESC LIMIT 1,chinook_1,chinook_manual
+show invoices sorted by total,SELECT * FROM Invoice ORDER BY Total DESC,chinook_1,chinook_manual
+show invoices sorted by date,SELECT * FROM Invoice ORDER BY InvoiceDate,chinook_1,chinook_manual
+show tracks sorted by name,SELECT * FROM Track ORDER BY Name,chinook_1,chinook_manual
+show top 5 tracks by duration,SELECT * FROM Track ORDER BY Milliseconds DESC LIMIT 5,chinook_1,chinook_manual
+show genres sorted by name,SELECT * FROM Genre ORDER BY Name,chinook_1,chinook_manual
+show playlists sorted by name,SELECT * FROM Playlist ORDER BY Name,chinook_1,chinook_manual
+show top 5 albums by title,SELECT * FROM Album ORDER BY Title ASC LIMIT 5,chinook_1,chinook_manual
+show 10 most recent invoices,SELECT * FROM Invoice ORDER BY InvoiceDate DESC LIMIT 10,chinook_1,chinook_manual
+show 5 highest invoice totals,SELECT * FROM Invoice ORDER BY Total DESC LIMIT 5,chinook_1,chinook_manual
+show 5 lowest invoice totals,SELECT * FROM Invoice ORDER BY Total ASC LIMIT 5,chinook_1,chinook_manual
+show first 10 customers,SELECT * FROM Customer ORDER BY CustomerId ASC LIMIT 10,chinook_1,chinook_manual
+show first 10 tracks,SELECT * FROM Track ORDER BY TrackId ASC LIMIT 10,chinook_1,chinook_manual
+show first 5 albums,SELECT * FROM Album ORDER BY AlbumId ASC LIMIT 5,chinook_1,chinook_manual
+show first 5 artists,SELECT * FROM Artist ORDER BY ArtistId ASC LIMIT 5,chinook_1,chinook_manual
+show top 5 invoice line quantities,SELECT * FROM InvoiceLine ORDER BY Quantity DESC LIMIT 5,chinook_1,chinook_manual
+show most expensive track,SELECT * FROM Track ORDER BY UnitPrice DESC LIMIT 1,chinook_1,chinook_manual
+show cheapest track,SELECT * FROM Track ORDER BY UnitPrice ASC LIMIT 1,chinook_1,chinook_manual
+show highest total invoice,SELECT * FROM Invoice ORDER BY Total DESC LIMIT 1,chinook_1,chinook_manual
+show latest invoice date,SELECT MAX(InvoiceDate) FROM Invoice,chinook_1,chinook_manual
+show earliest invoice date,SELECT MIN(InvoiceDate) FROM Invoice,chinook_1,chinook_manual
+show albums with artist names,"SELECT Album.Title, Artist.Name FROM Album JOIN Artist ON Album.ArtistId = Artist.ArtistId",chinook_1,chinook_manual
+list albums with their artist names,"SELECT Album.Title, Artist.Name FROM Album JOIN Artist ON Album.ArtistId = Artist.ArtistId",chinook_1,chinook_manual
+show album title and artist name,"SELECT Album.Title, Artist.Name FROM Album JOIN Artist ON Album.ArtistId = Artist.ArtistId",chinook_1,chinook_manual
+display albums and their artists,"SELECT Album.Title, Artist.Name FROM Album JOIN Artist ON Album.ArtistId = Artist.ArtistId",chinook_1,chinook_manual
+find albums with artist information,"SELECT Album.Title, Artist.Name FROM Album JOIN Artist ON Album.ArtistId = Artist.ArtistId",chinook_1,chinook_manual
+show artist name for each album,"SELECT Artist.Name, Album.Title FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId",chinook_1,chinook_manual
+get all albums with artist names,"SELECT Album.Title, Artist.Name FROM Album JOIN Artist ON Album.ArtistId = Artist.ArtistId",chinook_1,chinook_manual
+show which artist made each album,"SELECT Album.Title, Artist.Name FROM Album JOIN Artist ON Album.ArtistId = Artist.ArtistId",chinook_1,chinook_manual
+show tracks with their genre names,"SELECT Track.Name, Genre.Name FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId",chinook_1,chinook_manual
+list tracks with genre information,"SELECT Track.Name, Genre.Name FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId",chinook_1,chinook_manual
+show track name and genre name,"SELECT Track.Name, Genre.Name FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId",chinook_1,chinook_manual
+display tracks with their genres,"SELECT Track.Name, Genre.Name FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId",chinook_1,chinook_manual
+find each track with its genre,"SELECT Track.Name, Genre.Name FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId",chinook_1,chinook_manual
+show genre for each track,"SELECT Track.Name, Genre.Name FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId",chinook_1,chinook_manual
+show tracks with media type names,"SELECT Track.Name, MediaType.Name FROM Track JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId",chinook_1,chinook_manual
+list tracks with their media type,"SELECT Track.Name, MediaType.Name FROM Track JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId",chinook_1,chinook_manual
+show track name and media type,"SELECT Track.Name, MediaType.Name FROM Track JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId",chinook_1,chinook_manual
+find media type for each track,"SELECT Track.Name, MediaType.Name FROM Track JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId",chinook_1,chinook_manual
+show customer names with their invoices,"SELECT Customer.FirstName, Customer.LastName, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId",chinook_1,chinook_manual
+list customers with invoice totals,"SELECT Customer.FirstName, Customer.LastName, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId",chinook_1,chinook_manual
+show customer name and invoice total,"SELECT Customer.FirstName, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId",chinook_1,chinook_manual
+display customers with their purchases,"SELECT Customer.FirstName, Customer.LastName, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId",chinook_1,chinook_manual
+find invoices with customer names,"SELECT Customer.FirstName, Customer.LastName, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId",chinook_1,chinook_manual
+show customer email and invoice date,"SELECT Customer.Email, Invoice.InvoiceDate FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId",chinook_1,chinook_manual
+show customer country and invoice total,"SELECT Customer.Country, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId",chinook_1,chinook_manual
+list invoice lines with track names,"SELECT Track.Name, InvoiceLine.UnitPrice, InvoiceLine.Quantity FROM InvoiceLine JOIN Track ON InvoiceLine.TrackId = Track.TrackId",chinook_1,chinook_manual
+show track name for each invoice line,"SELECT Track.Name, InvoiceLine.UnitPrice FROM InvoiceLine JOIN Track ON InvoiceLine.TrackId = Track.TrackId",chinook_1,chinook_manual
+show invoice line details with track names,"SELECT Track.Name, InvoiceLine.UnitPrice, InvoiceLine.Quantity FROM InvoiceLine JOIN Track ON InvoiceLine.TrackId = Track.TrackId",chinook_1,chinook_manual
+list tracks sold with quantity,"SELECT Track.Name, InvoiceLine.Quantity FROM Track JOIN InvoiceLine ON Track.TrackId = InvoiceLine.TrackId",chinook_1,chinook_manual
+show tracks with their album titles,"SELECT Track.Name, Album.Title FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId",chinook_1,chinook_manual
+list tracks with album information,"SELECT Track.Name, Album.Title FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId",chinook_1,chinook_manual
+show track name and album title,"SELECT Track.Name, Album.Title FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId",chinook_1,chinook_manual
+find album for each track,"SELECT Track.Name, Album.Title FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId",chinook_1,chinook_manual
+show tracks and the album they belong to,"SELECT Track.Name, Album.Title FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId",chinook_1,chinook_manual
+show tracks in playlists,"SELECT Playlist.Name, Track.Name FROM Playlist JOIN PlaylistTrack ON Playlist.PlaylistId = PlaylistTrack.PlaylistId JOIN Track ON PlaylistTrack.TrackId = Track.TrackId",chinook_1,chinook_manual
+list playlist names with track names,"SELECT Playlist.Name, Track.Name FROM Playlist JOIN PlaylistTrack ON Playlist.PlaylistId = PlaylistTrack.PlaylistId JOIN Track ON PlaylistTrack.TrackId = Track.TrackId",chinook_1,chinook_manual
+show customers with their support representative,"SELECT Customer.FirstName, Customer.LastName, Employee.FirstName FROM Customer JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId",chinook_1,chinook_manual
+list customers with their employee rep,"SELECT Customer.FirstName, Employee.FirstName FROM Customer JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId",chinook_1,chinook_manual
+show customer name and support rep name,"SELECT Customer.FirstName, Customer.LastName, Employee.FirstName FROM Customer JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId",chinook_1,chinook_manual
+find which employee supports each customer,"SELECT Customer.FirstName, Employee.FirstName FROM Customer JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId",chinook_1,chinook_manual
+show albums with artist name where artist is ac dc,"SELECT Album.Title, Artist.Name FROM Album JOIN Artist ON Album.ArtistId = Artist.ArtistId WHERE Artist.Name = 'AC/DC'",chinook_1,chinook_manual
+show tracks with genre name where genre is rock,"SELECT Track.Name, Genre.Name FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId WHERE Genre.Name = 'Rock'",chinook_1,chinook_manual
+show tracks with genre name where genre is jazz,"SELECT Track.Name, Genre.Name FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId WHERE Genre.Name = 'Jazz'",chinook_1,chinook_manual
+show customers from usa with their invoices,"SELECT Customer.FirstName, Customer.LastName, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId WHERE Customer.Country = 'USA'",chinook_1,chinook_manual
+show customers from germany with invoice totals,"SELECT Customer.FirstName, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId WHERE Customer.Country = 'Germany'",chinook_1,chinook_manual
+show invoice lines where quantity is greater than 1,"SELECT Track.Name, InvoiceLine.Quantity FROM InvoiceLine JOIN Track ON InvoiceLine.TrackId = Track.TrackId WHERE InvoiceLine.Quantity > 1",chinook_1,chinook_manual
+count albums per artist with artist name,"SELECT Artist.Name, COUNT(Album.AlbumId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId GROUP BY Artist.ArtistId",chinook_1,chinook_manual
+show number of tracks per genre with genre name,"SELECT Genre.Name, COUNT(Track.TrackId) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId GROUP BY Genre.GenreId",chinook_1,chinook_manual
+show number of albums per artist name,"SELECT Artist.Name, COUNT(Album.AlbumId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId GROUP BY Artist.ArtistId",chinook_1,chinook_manual
+show total spending per customer name,"SELECT Customer.FirstName, Customer.LastName, SUM(Invoice.Total) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId",chinook_1,chinook_manual
+show average invoice per customer name,"SELECT Customer.FirstName, AVG(Invoice.Total) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId",chinook_1,chinook_manual
+show count of invoices per customer name,"SELECT Customer.FirstName, COUNT(Invoice.InvoiceId) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId",chinook_1,chinook_manual
+show total track duration per album title,"SELECT Album.Title, SUM(Track.Milliseconds) FROM Album JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Album.AlbumId",chinook_1,chinook_manual
+show number of tracks per album title,"SELECT Album.Title, COUNT(Track.TrackId) FROM Album JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Album.AlbumId",chinook_1,chinook_manual
+show track count per genre name,"SELECT Genre.Name, COUNT(Track.TrackId) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId GROUP BY Genre.GenreId",chinook_1,chinook_manual
+show total revenue per customer country,"SELECT Customer.Country, SUM(Invoice.Total) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.Country",chinook_1,chinook_manual
+show invoice count per customer country,"SELECT Customer.Country, COUNT(Invoice.InvoiceId) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.Country",chinook_1,chinook_manual
+show album count per artist sorted by count,"SELECT Artist.Name, COUNT(Album.AlbumId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId GROUP BY Artist.ArtistId ORDER BY COUNT(Album.AlbumId) DESC",chinook_1,chinook_manual
+show track count per genre sorted by count,"SELECT Genre.Name, COUNT(Track.TrackId) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId GROUP BY Genre.GenreId ORDER BY COUNT(Track.TrackId) DESC",chinook_1,chinook_manual
+show total spending per customer sorted by spending,"SELECT Customer.FirstName, SUM(Invoice.Total) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId ORDER BY SUM(Invoice.Total) DESC",chinook_1,chinook_manual
+top 5 artists by album count with names,"SELECT Artist.Name, COUNT(Album.AlbumId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId GROUP BY Artist.ArtistId ORDER BY COUNT(Album.AlbumId) DESC LIMIT 5",chinook_1,chinook_manual
+top 5 genres by track count with names,"SELECT Genre.Name, COUNT(Track.TrackId) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId GROUP BY Genre.GenreId ORDER BY COUNT(Track.TrackId) DESC LIMIT 5",chinook_1,chinook_manual
+top 5 customers by total spending with names,"SELECT Customer.FirstName, Customer.LastName, SUM(Invoice.Total) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId ORDER BY SUM(Invoice.Total) DESC LIMIT 5",chinook_1,chinook_manual
+top 10 customers by spending,"SELECT Customer.FirstName, Customer.LastName, SUM(Invoice.Total) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId ORDER BY SUM(Invoice.Total) DESC LIMIT 10",chinook_1,chinook_manual
+top 3 artists by album count,"SELECT Artist.Name, COUNT(Album.AlbumId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId GROUP BY Artist.ArtistId ORDER BY COUNT(Album.AlbumId) DESC LIMIT 3",chinook_1,chinook_manual
+top 10 genres by track count,"SELECT Genre.Name, COUNT(Track.TrackId) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId GROUP BY Genre.GenreId ORDER BY COUNT(Track.TrackId) DESC LIMIT 10",chinook_1,chinook_manual
+top 5 albums by track count,"SELECT Album.Title, COUNT(Track.TrackId) FROM Album JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Album.AlbumId ORDER BY COUNT(Track.TrackId) DESC LIMIT 5",chinook_1,chinook_manual
+which artist has the most albums,"SELECT Artist.Name, COUNT(Album.AlbumId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId GROUP BY Artist.ArtistId ORDER BY COUNT(Album.AlbumId) DESC LIMIT 1",chinook_1,chinook_manual
+which genre has the most tracks,"SELECT Genre.Name, COUNT(Track.TrackId) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId GROUP BY Genre.GenreId ORDER BY COUNT(Track.TrackId) DESC LIMIT 1",chinook_1,chinook_manual
+which customer spent the most,"SELECT Customer.FirstName, Customer.LastName, SUM(Invoice.Total) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId ORDER BY SUM(Invoice.Total) DESC LIMIT 1",chinook_1,chinook_manual
+show album with most tracks,"SELECT Album.Title, COUNT(Track.TrackId) FROM Album JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Album.AlbumId ORDER BY COUNT(Track.TrackId) DESC LIMIT 1",chinook_1,chinook_manual
+show track names with album title and artist name,"SELECT Track.Name, Album.Title, Artist.Name FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId",chinook_1,chinook_manual
+list tracks with their album and artist,"SELECT Track.Name, Album.Title, Artist.Name FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId",chinook_1,chinook_manual
+show track name album and artist,"SELECT Track.Name, Album.Title, Artist.Name FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId",chinook_1,chinook_manual
+display complete track information with album and artist,"SELECT Track.Name, Album.Title, Artist.Name FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId",chinook_1,chinook_manual
+find track artist and album for all tracks,"SELECT Track.Name, Album.Title, Artist.Name FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId",chinook_1,chinook_manual
+show track genre and media type,"SELECT Track.Name, Genre.Name, MediaType.Name FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId",chinook_1,chinook_manual
+list tracks with genre and media type names,"SELECT Track.Name, Genre.Name, MediaType.Name FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId",chinook_1,chinook_manual
+show track name genre name and media type name,"SELECT Track.Name, Genre.Name, MediaType.Name FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId",chinook_1,chinook_manual
+show invoice line details with customer and track,"SELECT Customer.FirstName, Track.Name, InvoiceLine.UnitPrice FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId JOIN Track ON InvoiceLine.TrackId = Track.TrackId",chinook_1,chinook_manual
+show customer name track name and invoice total,"SELECT Customer.FirstName, Track.Name, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId JOIN Track ON InvoiceLine.TrackId = Track.TrackId",chinook_1,chinook_manual
+show tracks bought by customers from usa,"SELECT Customer.FirstName, Track.Name FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId JOIN Track ON InvoiceLine.TrackId = Track.TrackId WHERE Customer.Country = 'USA'",chinook_1,chinook_manual
+show tracks bought by customers from germany,"SELECT Customer.FirstName, Track.Name FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId JOIN Track ON InvoiceLine.TrackId = Track.TrackId WHERE Customer.Country = 'Germany'",chinook_1,chinook_manual
+show rock tracks with album and artist,"SELECT Track.Name, Album.Title, Artist.Name FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId JOIN Genre ON Track.GenreId = Genre.GenreId WHERE Genre.Name = 'Rock'",chinook_1,chinook_manual
+show jazz tracks with album and artist names,"SELECT Track.Name, Album.Title, Artist.Name FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId JOIN Genre ON Track.GenreId = Genre.GenreId WHERE Genre.Name = 'Jazz'",chinook_1,chinook_manual
+count tracks per artist with album info,"SELECT Artist.Name, COUNT(Track.TrackId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Artist.ArtistId",chinook_1,chinook_manual
+show artist name and total tracks they have,"SELECT Artist.Name, COUNT(Track.TrackId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Artist.ArtistId",chinook_1,chinook_manual
+top 5 artists by track count,"SELECT Artist.Name, COUNT(Track.TrackId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Artist.ArtistId ORDER BY COUNT(Track.TrackId) DESC LIMIT 5",chinook_1,chinook_manual
+top 10 artists by number of tracks,"SELECT Artist.Name, COUNT(Track.TrackId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Artist.ArtistId ORDER BY COUNT(Track.TrackId) DESC LIMIT 10",chinook_1,chinook_manual
+which artist has the most tracks,"SELECT Artist.Name, COUNT(Track.TrackId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Artist.ArtistId ORDER BY COUNT(Track.TrackId) DESC LIMIT 1",chinook_1,chinook_manual
+show total revenue per customer with customer country,"SELECT Customer.FirstName, Customer.Country, SUM(Invoice.Total) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId ORDER BY SUM(Invoice.Total) DESC",chinook_1,chinook_manual
+show tracks with album artist and price,"SELECT Track.Name, Album.Title, Artist.Name, Track.UnitPrice FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId",chinook_1,chinook_manual
+show all track details with genre and media type,"SELECT Track.Name, Track.UnitPrice, Genre.Name, MediaType.Name FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId",chinook_1,chinook_manual
+show artist name album title and track count per album,"SELECT Artist.Name, Album.Title, COUNT(Track.TrackId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Album.AlbumId",chinook_1,chinook_manual
+top 5 albums by track count with artist name,"SELECT Album.Title, Artist.Name, COUNT(Track.TrackId) FROM Album JOIN Artist ON Album.ArtistId = Artist.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Album.AlbumId ORDER BY COUNT(Track.TrackId) DESC LIMIT 5",chinook_1,chinook_manual
+show playlist name and number of tracks in each playlist,"SELECT Playlist.Name, COUNT(PlaylistTrack.TrackId) FROM Playlist JOIN PlaylistTrack ON Playlist.PlaylistId = PlaylistTrack.PlaylistId GROUP BY Playlist.PlaylistId",chinook_1,chinook_manual
+show playlists with track count,"SELECT Playlist.Name, COUNT(PlaylistTrack.TrackId) FROM Playlist JOIN PlaylistTrack ON Playlist.PlaylistId = PlaylistTrack.PlaylistId GROUP BY Playlist.PlaylistId",chinook_1,chinook_manual
+top 5 playlists by number of tracks,"SELECT Playlist.Name, COUNT(PlaylistTrack.TrackId) FROM Playlist JOIN PlaylistTrack ON Playlist.PlaylistId = PlaylistTrack.PlaylistId GROUP BY Playlist.PlaylistId ORDER BY COUNT(PlaylistTrack.TrackId) DESC LIMIT 5",chinook_1,chinook_manual
+show customer name invoice date and total,"SELECT Customer.FirstName, Customer.LastName, Invoice.InvoiceDate, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId",chinook_1,chinook_manual
+show customer name and all their invoice totals,"SELECT Customer.FirstName, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId ORDER BY Customer.FirstName",chinook_1,chinook_manual
+show customers from usa with their invoice totals,"SELECT Customer.FirstName, Customer.LastName, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId WHERE Customer.Country = 'USA'",chinook_1,chinook_manual
+show customers from germany with their invoice totals,"SELECT Customer.FirstName, Customer.LastName, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId WHERE Customer.Country = 'Germany'",chinook_1,chinook_manual
+show rock tracks with their price,"SELECT Track.Name, Track.UnitPrice FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId WHERE Genre.Name = 'Rock'",chinook_1,chinook_manual
+show jazz tracks with their price,"SELECT Track.Name, Track.UnitPrice FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId WHERE Genre.Name = 'Jazz'",chinook_1,chinook_manual
+show tracks from album with artist ac dc,SELECT Track.Name FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId WHERE Artist.Name = 'AC/DC',chinook_1,chinook_manual
+show track count per genre with genre name sorted,"SELECT Genre.Name, COUNT(Track.TrackId) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId GROUP BY Genre.GenreId ORDER BY COUNT(Track.TrackId) DESC",chinook_1,chinook_manual
+show artist with their total track duration,"SELECT Artist.Name, SUM(Track.Milliseconds) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Artist.ArtistId ORDER BY SUM(Track.Milliseconds) DESC",chinook_1,chinook_manual
+show average track price per genre,"SELECT Genre.Name, AVG(Track.UnitPrice) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId GROUP BY Genre.GenreId",chinook_1,chinook_manual
+show total track duration per genre,"SELECT Genre.Name, SUM(Track.Milliseconds) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId GROUP BY Genre.GenreId ORDER BY SUM(Track.Milliseconds) DESC",chinook_1,chinook_manual
+show employee name and number of customers they support,"SELECT Employee.FirstName, Employee.LastName, COUNT(Customer.CustomerId) FROM Employee JOIN Customer ON Employee.EmployeeId = Customer.SupportRepId GROUP BY Employee.EmployeeId",chinook_1,chinook_manual
+which employee supports the most customers,"SELECT Employee.FirstName, Employee.LastName, COUNT(Customer.CustomerId) FROM Employee JOIN Customer ON Employee.EmployeeId = Customer.SupportRepId GROUP BY Employee.EmployeeId ORDER BY COUNT(Customer.CustomerId) DESC LIMIT 1",chinook_1,chinook_manual
+artists with more than 10 albums,"SELECT Artist.Name, COUNT(Album.AlbumId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId GROUP BY Artist.ArtistId HAVING COUNT(Album.AlbumId) > 10",chinook_1,chinook_manual
+artists with more than 5 albums,"SELECT Artist.Name, COUNT(Album.AlbumId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId GROUP BY Artist.ArtistId HAVING COUNT(Album.AlbumId) > 5",chinook_1,chinook_manual
+genres with more than 100 tracks,"SELECT Genre.Name, COUNT(Track.TrackId) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId GROUP BY Genre.GenreId HAVING COUNT(Track.TrackId) > 100",chinook_1,chinook_manual
+genres with more than 50 tracks,"SELECT Genre.Name, COUNT(Track.TrackId) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId GROUP BY Genre.GenreId HAVING COUNT(Track.TrackId) > 50",chinook_1,chinook_manual
+customers who spent more than 40,"SELECT Customer.FirstName, Customer.LastName, SUM(Invoice.Total) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId HAVING SUM(Invoice.Total) > 40",chinook_1,chinook_manual
+customers who spent more than 20,"SELECT Customer.FirstName, SUM(Invoice.Total) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId HAVING SUM(Invoice.Total) > 20",chinook_1,chinook_manual
+countries with revenue greater than 50,"SELECT BillingCountry, SUM(Total) FROM Invoice GROUP BY BillingCountry HAVING SUM(Total) > 50",chinook_1,chinook_manual
+countries with more than 20 invoices,"SELECT BillingCountry, COUNT(*) FROM Invoice GROUP BY BillingCountry HAVING COUNT(*) > 20",chinook_1,chinook_manual
+albums with more than 15 tracks,"SELECT Album.Title, COUNT(Track.TrackId) FROM Album JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Album.AlbumId HAVING COUNT(Track.TrackId) > 15",chinook_1,chinook_manual
+albums with more than 10 tracks,"SELECT Album.Title, COUNT(Track.TrackId) FROM Album JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Album.AlbumId HAVING COUNT(Track.TrackId) > 10",chinook_1,chinook_manual
+show distinct countries from customer table,SELECT DISTINCT Country FROM Customer,chinook_1,chinook_manual
+show distinct billing countries from invoices,SELECT DISTINCT BillingCountry FROM Invoice,chinook_1,chinook_manual
+show distinct genres from tracks,SELECT DISTINCT GenreId FROM Track,chinook_1,chinook_manual
+show distinct media types from tracks,SELECT DISTINCT MediaTypeId FROM Track,chinook_1,chinook_manual
+show customers who have more than 5 invoices,"SELECT Customer.FirstName, COUNT(Invoice.InvoiceId) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId HAVING COUNT(Invoice.InvoiceId) > 5",chinook_1,chinook_manual
+show customers who have more than 3 invoices,"SELECT Customer.FirstName, COUNT(Invoice.InvoiceId) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId HAVING COUNT(Invoice.InvoiceId) > 3",chinook_1,chinook_manual
+show employees who support more than 10 customers,"SELECT Employee.FirstName, COUNT(Customer.CustomerId) FROM Employee JOIN Customer ON Employee.EmployeeId = Customer.SupportRepId GROUP BY Employee.EmployeeId HAVING COUNT(Customer.CustomerId) > 10",chinook_1,chinook_manual
+genres with average track price above 1,"SELECT Genre.Name, AVG(Track.UnitPrice) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId GROUP BY Genre.GenreId HAVING AVG(Track.UnitPrice) > 1",chinook_1,chinook_manual
+artists with total track duration above 1000000,"SELECT Artist.Name, SUM(Track.Milliseconds) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Artist.ArtistId HAVING SUM(Track.Milliseconds) > 1000000",chinook_1,chinook_manual
+albums with average track price above 0.99,"SELECT Album.Title, AVG(Track.UnitPrice) FROM Album JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Album.AlbumId HAVING AVG(Track.UnitPrice) > 0.99",chinook_1,chinook_manual
+show all invoice line items,SELECT * FROM InvoiceLine,chinook_1,chinook_manual
+show all playlist tracks,SELECT * FROM PlaylistTrack,chinook_1,chinook_manual
+show customer postal codes,"SELECT FirstName, LastName, PostalCode FROM Customer",chinook_1,chinook_manual
+show customer phone numbers,"SELECT FirstName, LastName, Phone FROM Customer",chinook_1,chinook_manual
+show employee hire dates,"SELECT FirstName, LastName, HireDate FROM Employee",chinook_1,chinook_manual
+show employee birth dates,"SELECT FirstName, LastName, BirthDate FROM Employee",chinook_1,chinook_manual
+show track file sizes,"SELECT Name, Bytes FROM Track",chinook_1,chinook_manual
+show track durations in milliseconds,"SELECT Name, Milliseconds FROM Track",chinook_1,chinook_manual
+show invoice billing addresses,"SELECT InvoiceId, BillingAddress, BillingCity FROM Invoice",chinook_1,chinook_manual
+show invoice billing cities,"SELECT InvoiceId, BillingCity, BillingCountry FROM Invoice",chinook_1,chinook_manual
+show customers where country is sweden,SELECT * FROM Customer WHERE Country = 'Sweden',chinook_1,chinook_manual
+show customers where country is austria,SELECT * FROM Customer WHERE Country = 'Austria',chinook_1,chinook_manual
+show customers where country is netherlands,SELECT * FROM Customer WHERE Country = 'Netherlands',chinook_1,chinook_manual
+show customers where country is denmark,SELECT * FROM Customer WHERE Country = 'Denmark',chinook_1,chinook_manual
+show customers where country is finland,SELECT * FROM Customer WHERE Country = 'Finland',chinook_1,chinook_manual
+show customers where country is hungary,SELECT * FROM Customer WHERE Country = 'Hungary',chinook_1,chinook_manual
+show customers where country is poland,SELECT * FROM Customer WHERE Country = 'Poland',chinook_1,chinook_manual
+show customers where country is spain,SELECT * FROM Customer WHERE Country = 'Spain',chinook_1,chinook_manual
+show customers where country is italy,SELECT * FROM Customer WHERE Country = 'Italy',chinook_1,chinook_manual
+show customers where country is belgium,SELECT * FROM Customer WHERE Country = 'Belgium',chinook_1,chinook_manual
+show invoices from 2009,SELECT * FROM Invoice WHERE InvoiceDate LIKE '2009%',chinook_1,chinook_manual
+show invoices from 2010,SELECT * FROM Invoice WHERE InvoiceDate LIKE '2010%',chinook_1,chinook_manual
+show customers where fax is null,SELECT * FROM Customer WHERE Fax IS NULL,chinook_1,chinook_manual
+show customers where company is not null,SELECT * FROM Customer WHERE Company IS NOT NULL,chinook_1,chinook_manual
+show employees where reports to is null,SELECT * FROM Employee WHERE ReportsTo IS NULL,chinook_1,chinook_manual
+show tracks with album id 5,SELECT * FROM Track WHERE AlbumId = 5,chinook_1,chinook_manual
+show invoice lines with track id 1,SELECT * FROM InvoiceLine WHERE TrackId = 1,chinook_1,chinook_manual
+show tracks where composer field is not null,SELECT * FROM Track WHERE Composer IS NOT NULL,chinook_1,chinook_manual
+show customer first names starting with j,SELECT * FROM Customer WHERE FirstName LIKE 'J%',chinook_1,chinook_manual
+show albums where title starts with the,SELECT * FROM Album WHERE Title LIKE 'The%',chinook_1,chinook_manual
+count invoice lines total,SELECT COUNT(*) FROM InvoiceLine,chinook_1,chinook_manual
+total invoice line quantity,SELECT SUM(Quantity) FROM InvoiceLine,chinook_1,chinook_manual
+max invoice line quantity,SELECT MAX(Quantity) FROM InvoiceLine,chinook_1,chinook_manual
+average track bytes,SELECT AVG(Bytes) FROM Track,chinook_1,chinook_manual
+total bytes of all tracks,SELECT SUM(Bytes) FROM Track,chinook_1,chinook_manual
+how many tracks have no composer,SELECT COUNT(*) FROM Track WHERE Composer IS NULL,chinook_1,chinook_manual
+how many customers have a company,SELECT COUNT(*) FROM Customer WHERE Company IS NOT NULL,chinook_1,chinook_manual
+total revenue from brazil,SELECT SUM(Total) FROM Invoice WHERE BillingCountry = 'Brazil',chinook_1,chinook_manual
+total revenue from canada,SELECT SUM(Total) FROM Invoice WHERE BillingCountry = 'Canada',chinook_1,chinook_manual
+average invoice total for germany,SELECT AVG(Total) FROM Invoice WHERE BillingCountry = 'Germany',chinook_1,chinook_manual
+how many invoices are from brazil,SELECT COUNT(*) FROM Invoice WHERE BillingCountry = 'Brazil',chinook_1,chinook_manual
+how many invoices are from canada,SELECT COUNT(*) FROM Invoice WHERE BillingCountry = 'Canada',chinook_1,chinook_manual
+how many playlist tracks are there,SELECT COUNT(*) FROM PlaylistTrack,chinook_1,chinook_manual
+how many invoice lines are there,SELECT COUNT(*) FROM InvoiceLine,chinook_1,chinook_manual
+how many distinct countries do customers come from,SELECT COUNT(DISTINCT Country) FROM Customer,chinook_1,chinook_manual
+how many distinct billing countries are there,SELECT COUNT(DISTINCT BillingCountry) FROM Invoice,chinook_1,chinook_manual
+count tracks by album id,"SELECT AlbumId, COUNT(*) FROM Track GROUP BY AlbumId",chinook_1,chinook_manual
+average track price by album,"SELECT AlbumId, AVG(UnitPrice) FROM Track GROUP BY AlbumId",chinook_1,chinook_manual
+count invoice lines by invoice id,"SELECT InvoiceId, COUNT(*) FROM InvoiceLine GROUP BY InvoiceId",chinook_1,chinook_manual
+total quantity per invoice,"SELECT InvoiceId, SUM(Quantity) FROM InvoiceLine GROUP BY InvoiceId",chinook_1,chinook_manual
+count invoices by billing state,"SELECT BillingState, COUNT(*) FROM Invoice GROUP BY BillingState",chinook_1,chinook_manual
+total revenue by billing state,"SELECT BillingState, SUM(Total) FROM Invoice GROUP BY BillingState",chinook_1,chinook_manual
+average track duration by genre,"SELECT GenreId, AVG(Milliseconds) FROM Track GROUP BY GenreId",chinook_1,chinook_manual
+total bytes per album,"SELECT AlbumId, SUM(Bytes) FROM Track GROUP BY AlbumId",chinook_1,chinook_manual
+show top 1 most expensive track,SELECT * FROM Track ORDER BY UnitPrice DESC LIMIT 1,chinook_1,chinook_manual
+show bottom 5 cheapest invoices,SELECT * FROM Invoice ORDER BY Total ASC LIMIT 5,chinook_1,chinook_manual
+show 20 most recent invoices,SELECT * FROM Invoice ORDER BY InvoiceDate DESC LIMIT 20,chinook_1,chinook_manual
+show first 20 artists alphabetically,SELECT * FROM Artist ORDER BY Name ASC LIMIT 20,chinook_1,chinook_manual
+show top 5 tracks by file size,SELECT * FROM Track ORDER BY Bytes DESC LIMIT 5,chinook_1,chinook_manual
+show 3 most expensive tracks,"SELECT Name, UnitPrice FROM Track ORDER BY UnitPrice DESC LIMIT 3",chinook_1,chinook_manual
+show last 5 invoices by date,SELECT * FROM Invoice ORDER BY InvoiceDate DESC LIMIT 5,chinook_1,chinook_manual
+show first invoice ever,SELECT * FROM Invoice ORDER BY InvoiceDate ASC LIMIT 1,chinook_1,chinook_manual
+show artist name and album count sorted,"SELECT Artist.Name, COUNT(Album.AlbumId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId GROUP BY Artist.ArtistId ORDER BY COUNT(Album.AlbumId) DESC",chinook_1,chinook_manual
+show genre name and track count sorted,"SELECT Genre.Name, COUNT(Track.TrackId) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId GROUP BY Genre.GenreId ORDER BY COUNT(Track.TrackId) DESC",chinook_1,chinook_manual
+show album title and artist name sorted by artist,"SELECT Album.Title, Artist.Name FROM Album JOIN Artist ON Album.ArtistId = Artist.ArtistId ORDER BY Artist.Name",chinook_1,chinook_manual
+show track name and genre sorted by genre,"SELECT Track.Name, Genre.Name FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId ORDER BY Genre.Name",chinook_1,chinook_manual
+show customer name and invoice total sorted by total,"SELECT Customer.FirstName, Invoice.Total FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId ORDER BY Invoice.Total DESC",chinook_1,chinook_manual
+show top 5 customers by invoice count,"SELECT Customer.FirstName, COUNT(Invoice.InvoiceId) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId ORDER BY COUNT(Invoice.InvoiceId) DESC LIMIT 5",chinook_1,chinook_manual
+show top 5 most purchased tracks,"SELECT Track.Name, SUM(InvoiceLine.Quantity) FROM Track JOIN InvoiceLine ON Track.TrackId = InvoiceLine.TrackId GROUP BY Track.TrackId ORDER BY SUM(InvoiceLine.Quantity) DESC LIMIT 5",chinook_1,chinook_manual
+show track name and total times purchased,"SELECT Track.Name, SUM(InvoiceLine.Quantity) FROM Track JOIN InvoiceLine ON Track.TrackId = InvoiceLine.TrackId GROUP BY Track.TrackId ORDER BY SUM(InvoiceLine.Quantity) DESC",chinook_1,chinook_manual
+show genre name and total revenue,"SELECT Genre.Name, SUM(InvoiceLine.UnitPrice * InvoiceLine.Quantity) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId JOIN InvoiceLine ON Track.TrackId = InvoiceLine.TrackId GROUP BY Genre.GenreId ORDER BY SUM(InvoiceLine.UnitPrice * InvoiceLine.Quantity) DESC",chinook_1,chinook_manual
+top 5 artists by revenue,"SELECT Artist.Name, SUM(InvoiceLine.UnitPrice * InvoiceLine.Quantity) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId JOIN InvoiceLine ON Track.TrackId = InvoiceLine.TrackId GROUP BY Artist.ArtistId ORDER BY SUM(InvoiceLine.UnitPrice * InvoiceLine.Quantity) DESC LIMIT 5",chinook_1,chinook_manual
+top 5 genres by revenue,"SELECT Genre.Name, SUM(InvoiceLine.UnitPrice * InvoiceLine.Quantity) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId JOIN InvoiceLine ON Track.TrackId = InvoiceLine.TrackId GROUP BY Genre.GenreId ORDER BY SUM(InvoiceLine.UnitPrice * InvoiceLine.Quantity) DESC LIMIT 5",chinook_1,chinook_manual
+show tracks with mpeg audio media type,SELECT Track.Name FROM Track JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId WHERE MediaType.Name LIKE '%MPEG%',chinook_1,chinook_manual
+count tracks per media type name,"SELECT MediaType.Name, COUNT(Track.TrackId) FROM MediaType JOIN Track ON MediaType.MediaTypeId = Track.MediaTypeId GROUP BY MediaType.MediaTypeId",chinook_1,chinook_manual
+show tracks in the music playlist,SELECT Track.Name FROM Track JOIN PlaylistTrack ON Track.TrackId = PlaylistTrack.TrackId JOIN Playlist ON PlaylistTrack.PlaylistId = Playlist.PlaylistId WHERE Playlist.Name = 'Music',chinook_1,chinook_manual
+count tracks in each playlist,"SELECT Playlist.Name, COUNT(PlaylistTrack.TrackId) FROM Playlist JOIN PlaylistTrack ON Playlist.PlaylistId = PlaylistTrack.PlaylistId GROUP BY Playlist.PlaylistId ORDER BY COUNT(PlaylistTrack.TrackId) DESC",chinook_1,chinook_manual
+show playlist with most tracks,"SELECT Playlist.Name, COUNT(PlaylistTrack.TrackId) FROM Playlist JOIN PlaylistTrack ON Playlist.PlaylistId = PlaylistTrack.PlaylistId GROUP BY Playlist.PlaylistId ORDER BY COUNT(PlaylistTrack.TrackId) DESC LIMIT 1",chinook_1,chinook_manual
+show support rep for customer from usa,"SELECT Customer.FirstName, Employee.FirstName FROM Customer JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId WHERE Customer.Country = 'USA'",chinook_1,chinook_manual
+show employee and their customer countries,"SELECT Employee.FirstName, Customer.Country FROM Employee JOIN Customer ON Employee.EmployeeId = Customer.SupportRepId ORDER BY Employee.FirstName",chinook_1,chinook_manual
+find the employee who handles the most customers,"SELECT Employee.FirstName, Employee.LastName, COUNT(Customer.CustomerId) FROM Employee JOIN Customer ON Employee.EmployeeId = Customer.SupportRepId GROUP BY Employee.EmployeeId ORDER BY COUNT(Customer.CustomerId) DESC LIMIT 1",chinook_1,chinook_manual
+show artist total track duration,"SELECT Artist.Name, SUM(Track.Milliseconds) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Artist.ArtistId ORDER BY SUM(Track.Milliseconds) DESC",chinook_1,chinook_manual
+show average track price per genre name,"SELECT Genre.Name, AVG(Track.UnitPrice) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId GROUP BY Genre.GenreId",chinook_1,chinook_manual
+show total track duration per genre name,"SELECT Genre.Name, SUM(Track.Milliseconds) FROM Genre JOIN Track ON Genre.GenreId = Track.GenreId GROUP BY Genre.GenreId ORDER BY SUM(Track.Milliseconds) DESC",chinook_1,chinook_manual
+show artist name album title and track count,"SELECT Artist.Name, Album.Title, COUNT(Track.TrackId) FROM Artist JOIN Album ON Artist.ArtistId = Album.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Album.AlbumId",chinook_1,chinook_manual
+show top 5 albums with artist and track count,"SELECT Album.Title, Artist.Name, COUNT(Track.TrackId) FROM Album JOIN Artist ON Album.ArtistId = Artist.ArtistId JOIN Track ON Album.AlbumId = Track.AlbumId GROUP BY Album.AlbumId ORDER BY COUNT(Track.TrackId) DESC LIMIT 5",chinook_1,chinook_manual
+show rock tracks with album and artist names,"SELECT Track.Name, Album.Title, Artist.Name FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Artist ON Album.ArtistId = Artist.ArtistId JOIN Genre ON Track.GenreId = Genre.GenreId WHERE Genre.Name = 'Rock'",chinook_1,chinook_manual
+show jazz tracks with album name,"SELECT Track.Name, Album.Title FROM Track JOIN Album ON Track.AlbumId = Album.AlbumId JOIN Genre ON Track.GenreId = Genre.GenreId WHERE Genre.Name = 'Jazz'",chinook_1,chinook_manual
+show customers from usa total spending,"SELECT Customer.FirstName, Customer.LastName, SUM(Invoice.Total) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId WHERE Customer.Country = 'USA' GROUP BY Customer.CustomerId ORDER BY SUM(Invoice.Total) DESC",chinook_1,chinook_manual
+top 5 customers from usa by spending,"SELECT Customer.FirstName, Customer.LastName, SUM(Invoice.Total) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId WHERE Customer.Country = 'USA' GROUP BY Customer.CustomerId ORDER BY SUM(Invoice.Total) DESC LIMIT 5",chinook_1,chinook_manual
+show invoice count and total per customer country,"SELECT Customer.Country, COUNT(Invoice.InvoiceId), SUM(Invoice.Total) FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.Country ORDER BY SUM(Invoice.Total) DESC",chinook_1,chinook_manual

@@ -1,0 +1,44 @@
+# ── Trained models (too large for git ~1.7GB each) ───
+models/*.pt
+models/*.bin
+
+# ── Resume checkpoints ────────────────────────────────
+models/resume_*.pt
+
+# ── Training data (too large for git) ────────────────
+data/wikisql/
+data/spider/
+data/processed/
+
+# ── Vocabulary files (too large, share via Drive) ─────
+data/vocab/
+
+# ── Generated databases ───────────────────────────────
+data/ecommerce.db
+
+# ── Python cache ──────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# ── Environment ───────────────────────────────────────
+.env
+*.env
+venv/
+.venv/
+env/
+
+# ── Jupyter ───────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── OS files ──────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── VSCode ────────────────────────────────────────────
+.vscode/
+
+# ── Logs ──────────────────────────────────────────────
+*.log

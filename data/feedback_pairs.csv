@@ -1,0 +1,2 @@
+question,sql,db_id,source
+show all customers from India,SELECT * FROM Customer WHERE Country = 'India',chinook_1,feedback_correction
