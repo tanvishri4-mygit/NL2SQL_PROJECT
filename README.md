@@ -5,6 +5,11 @@
 
 ---
 
+## NOTE  TO PROFESSOR
+Download inferencing data and model from this drive link - https://drive.google.com/file/d/1CHXiY9UQE3cECcni5v5fdIrSnMTFKTcr/view?usp=sharing
+This will download a zip file which will have a README_SETUP.txt file
+Follow the steps written in README_SETUP.txt file to place the data and models in correct repository and then run the project based on this README.md file
+
 ## Overview
 
 This system converts natural language questions into executable SQL queries against the **Chinook Digital Music Store** database. It combines classical NLP techniques with a trained BERT + LSTM Seq2Seq neural model.
