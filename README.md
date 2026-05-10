@@ -6,9 +6,9 @@
 ---
 
 ## NOTE  TO PROFESSOR
-Download inferencing data and model from this drive link - https://drive.google.com/file/d/1CHXiY9UQE3cECcni5v5fdIrSnMTFKTcr/view?usp=sharing
-This will download a zip file which will have a README_SETUP.txt file
-Follow the steps written in README_SETUP.txt file to place the data and models in correct repository and then run the project based on this README.md file
+Download inferencing data and model from this drive link - https://drive.google.com/file/d/1CHXiY9UQE3cECcni5v5fdIrSnMTFKTcr/view?usp=sharing  
+This will download a zip file which will have a README_SETUP.txt file  
+Follow the steps written in README_SETUP.txt file to place the data and models in correct repository and then run the project based on this README.md file  
 
 ## Overview
 
